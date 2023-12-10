@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teachers', function (Blueprint $table) {
-            $table->bigInteger('user_id');
-            $table->bigInteger('course_id');
-            $table->primary(['user_id', 'course_id']);
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::create('moodle_course', function (Blueprint $table) {
+            $table->id();
+            $table->string('link');
+            $table->string('name');
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('teachers');
+        Schema::dropIfExists('moodle_course');
     }
 };
