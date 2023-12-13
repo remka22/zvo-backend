@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout']);
+    Route::get('/user', function (Request $request){
+        return $request->user();
+    });
+    //Route::apiResource('/users', UsersController::class);
+
+});
+
+//Route::post('/login', [LoginController::class, 'login']);
+Route::post('/login', function (LoginRequest $request){
+    return LoginController::login($request);
+    return response([
+        'message' => 'Provided email or password is incorrect'
+    ], 403);
 });

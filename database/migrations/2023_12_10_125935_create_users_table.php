@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('role_id', false, true);
             $table->string('fio');
             $table->string('email');
+            $table->string('password');
         
             $table->foreign('role_id')->references('id')->on('roles');
         });
