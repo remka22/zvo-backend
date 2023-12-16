@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('user_id', false, true);
             $table->bigInteger('course_id', false, true);
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('course_id')->references('id')->on('moodle_course');
         });
     }
 

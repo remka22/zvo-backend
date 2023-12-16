@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('subject_course', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('stream_id', false, true);
+            $table->bigInteger('program_id', false, true);
             $table->integer('number_course');
             $table->bigInteger('teacher_course_id', false, true);
             $table->string('comment');
 
             $table->foreign('teacher_course_id')->references('id')->on('teacher_course');
-            $table->foreign('stream_id')->references('id')->on('streams');
+            $table->foreign('program_id')->references('id')->on('learn_program');
         });
     }
 

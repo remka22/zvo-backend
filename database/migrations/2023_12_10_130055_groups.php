@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('metodist_id', false, true);
-            $table->bigInteger('stream_id', false, true);
+            $table->bigInteger('program_id', false, true);
             $table->integer('number');
-            $table->date('year_add');
 
             $table->foreign('metodist_id')->references('id')->on('users');
-            $table->foreign('stream_id')->references('id')->on('streams');
+            $table->foreign('program_id')->references('id')->on('learn_program');
         });
     }
 

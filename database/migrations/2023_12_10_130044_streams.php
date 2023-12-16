@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('streams', function (Blueprint $table) {
+        Schema::create('learn_program', function (Blueprint $table) {
             $table->id();
+            $table->string('name_stream');
             $table->string('short_name');
-            $table->string('full_name');
+            $table->integer('year');
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('streams');
+        Schema::dropIfExists('learn_program');
     }
 };

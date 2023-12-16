@@ -19,17 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout']);
-    Route::get('/user', function (Request $request){
+    Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    //Route::apiResource('/users', UsersController::class);
 
+    //Route::apiResource('/users', UserController::class);
 });
 
-//Route::post('/login', [LoginController::class, 'login']);
-Route::post('/login', function (LoginRequest $request){
-    return LoginController::login($request);
-    return response([
-        'message' => 'Provided email or password is incorrect'
-    ], 403);
-});
+Route::post('/signup', [LoginController::class, 'signup']);
+Route::post('/login', [LoginController::class, 'login']);

@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function(){
-    return LoginController::login();
+    return LoginController::login_web();
 });

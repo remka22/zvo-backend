@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('link');
             $table->string('name');
+            $table->bigInteger('course_id', false, true);
+            $table->foreign('course_id')->references('id')->on('moodle_course');
         });
     }
 
