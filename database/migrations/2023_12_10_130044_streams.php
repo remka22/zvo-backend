@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('learn_program', function (Blueprint $table) {
+        /*Schema::create('learn_program', function (Blueprint $table) {
             $table->id();
             $table->string('name_stream');
             $table->string('short_name');
             $table->integer('year');
-        });
+        });*/
     }
 
     /**

@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\MetodistController;
+use App\Http\Controllers\Api\DirectorController;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
@@ -28,3 +31,16 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::post('/signup', [LoginController::class, 'signup']);
 Route::post('/login', [LoginController::class, 'login']);
+
+Route::get('/director', function(Request $request){
+    return DirectorController::get($request);
+});
+Route::post('/director', function (Request $request) {
+    return DirectorController::post($request);
+});
+Route::get('/metodist', function(Request $request){
+    return MetodistController::get($request);
+});
+Route::post('/metodist', function (Request $request) {
+    return response();
+});

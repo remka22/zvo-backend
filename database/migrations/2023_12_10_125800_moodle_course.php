@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('moodle_course', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
+            $table->integer('link_id');
             $table->string('name');
         });
     }

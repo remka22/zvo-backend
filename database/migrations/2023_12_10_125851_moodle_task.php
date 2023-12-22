@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('moodle_task', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
+            $table->integer('link_id');
             $table->string('name');
+            $table->string('type');
             $table->bigInteger('course_id', false, true);
             $table->foreign('course_id')->references('id')->on('moodle_course');
         });

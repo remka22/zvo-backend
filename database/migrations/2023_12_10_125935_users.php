@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('role_id', false, true);
             $table->string('fio');
-            $table->string('email');
-            $table->string('password');
-            $table->integer('mira_id');
-            $table->integer('moodle_id')->default(1);
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            $table->integer('mira_id')->nullable();
+            $table->integer('moodle_id')->nullable();
             $table->foreign('role_id')->references('id')->on('roles');
         });
     }

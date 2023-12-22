@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('group_id', false, true);
             $table->bigInteger('user_id', false, true);
+            $table->bigInteger('nomz', false, true)->nullable();
 
             $table->foreign('group_id')->references('id')->on('groups');
             $table->foreign('user_id')->references('id')->on('users');
