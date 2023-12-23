@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Teacher_course extends Model
+class TeacherCourse extends Model
 {
     use HasFactory;
     public $timestamps = false;

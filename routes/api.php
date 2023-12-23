@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\MetodistController;
 use App\Http\Controllers\Api\DirectorController;
+use App\Http\Controllers\Api\TeacherController;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
@@ -35,12 +36,24 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/director', function(Request $request){
     return DirectorController::get($request);
 });
-Route::post('/director', function (Request $request) {
+Route::post('/director', function (Request $request){
     return DirectorController::post($request);
 });
 Route::get('/metodist', function(Request $request){
     return MetodistController::get($request);
 });
-Route::post('/metodist', function (Request $request) {
-    return response();
+Route::post('/metodist', function (Request $request){
+    return MetodistController::post($request);
+});
+Route::get('/teacher', function(Request $request){
+    return TeacherController::get($request);
+});
+Route::post('/teacher', function (Request $request){
+    return TeacherController::post($request);
+});
+Route::get('/student', function(){
+    return StudentController::get();
+});
+Route::post('/student', function (Request $request){
+    return response();//TeacherController::post($request);
 });

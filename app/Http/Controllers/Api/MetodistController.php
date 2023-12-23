@@ -8,6 +8,10 @@ use App\Models\Group;
 use App\Models\Subject;
 use App\Models\SubjectTeacher;
 use App\Models\User;
+use App\Models\TeacherCourse;
+use App\Models\MoodleCourse;
+use App\Models\NeedsTask;
+use App\Models\MoodleTask;
 
 class MetodistController extends Controller
 {
@@ -45,6 +49,23 @@ class MetodistController extends Controller
                                                                                                             'course' => array(),
                                                                                                             'need_task' => array()
                                                                                                             )];
+                    if ($st->teacher_course_id != null){
+                        $t_course = TeacherCourse::find($st->teacher_course_id);
+                        $course = MoodleCourse::find($t_course->course_id);
+                        $data['data']['groups'][$g->id]['subjects'][$s->id]['maby_subject'][$st->id]['course'] += [$course->id => array(
+                                                                                                                                    'name' => $course->name,
+                                                                                                                                    'id_link' => $course->link_id,   
+                                                                                                                                    )];
+                        $task = NeedsTask::where('subject_id', $st->id)->get();
+                        foreach ($task as $t){
+                            $m_task = MoodleTask::find($t->task_id);
+                            $data['data']['groups'][$g->id]['subjects'][$s->id]['maby_subject'][$st->id]['need_task'] += [$t->id => array(
+                                                                                                                                        'name' => $m_task->name,
+                                                                                                                                        'id_link' => $m_task->link_id,
+                                                                                                                                        'type' => $m_task->type    
+                                                                                                                                        )];
+                        }   
+                    } 
                 }
             }
         }
@@ -53,6 +74,21 @@ class MetodistController extends Controller
         //return(json_encode($data, JSON_UNESCAPED_UNICODE));
         return response([
             'response' => $data
+        ], 200);
+    }
+
+    public static function post($request){
+        $subjects = $request->input('subjects');
+
+        foreach ($subjects as $key => $value){
+            $subject = Subject::find($key);
+            $subject->subject_teacher_id = $value;
+            $subject->save();
+        }
+
+
+        return response([
+            'response' => "course added to subject"
         ], 200);
     }
 }

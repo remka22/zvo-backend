@@ -59,7 +59,7 @@ class DirectorController extends Controller
         }
 
         return response([
-            'response' => DirectorController::get()
+            'response' => "ok"
         ], 200);
     }
 }
