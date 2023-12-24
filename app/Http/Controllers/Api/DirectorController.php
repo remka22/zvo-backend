@@ -8,56 +8,98 @@ use App\Models\Group;
 use App\Models\Subject;
 use App\Models\SubjectTeacher;
 use App\Models\User;
+use App\Models\Notification;
 
 class DirectorController extends Controller
 {
-    public static function get($request){
-        $id_director = $request->get('id');
-        $director = User::find($id_director);
-        $data = array('data' => array('metainfo' => array(
-                                                        'id' => $director->id, 
-                                                        'fio' => $director->fio,
-                                                        'email' => $director->email,
-                                                        ), 'metodists' => array(), 'groups' => array()));
+    public static function get($request)
+    {
+        // $user = $request->user();
+        // $director = User::find($user->id);
+        $director = User::find($request->input('id'));
+        if ($director->role_id != 5) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
         $metodists = User::where('role_id', 4)->get();
-        foreach ($metodists as $met){
-            $data['data']['metodists'] += [$met->id => array(
-                                                                'fio' => $met->fio,
-                                                                'groups' => array()
-                                                            )];
+        $arr_metodists = [];
+        foreach ($metodists as $met) {
             $groups = Group::where('metodist_id', $met->id)->get();
-            foreach($groups as $g){
-                $data['data']['metodists'][$met->id]['groups'] += [$g->id =>array(
-                                                                        'short_name' => $g->short_name,
-                                                                        'year' => $g->year,
-                                                                        'number' => $g->number
-                                                                        )];
+            $arr_groups = [];
+            foreach ($groups as $g) {
+                $arr_groups[] = [
+                    'id' => $g->id,
+                    'short_name' => $g->short_name,
+                    'year' => $g->year,
+                    'number' => $g->number
+                ];
+            }
+            $arr_metodists[] = [
+                'fio' => $met->fio,
+                'id' => $met->id,
+                'groups' => $arr_groups
+            ];
+        }
+        $arr_groups = [];
+        $groups = Group::all();
+        foreach ($groups as $g) {
+            if ($g->metodist_id == null) {
+                $arr_groups[] = [
+                    'id' => $g->id,
+                    'short_name' => $g->short_name,
+                    'year' => $g->year,
+                    'number' => $g->number
+                ];
             }
         }
-        $groups = Group::query()->get();
-        foreach ($groups as $g){
-            if ($g->metodist_id == null)
-            $data['data']['groups'] += [$g->id => array(
-                                                                'short_name' => $g->short_name,
-                                                                'year' => $g->year,
-                                                                'number' => $g->number
-                                                            )];
+        $notif = Notification::where([['user_rec_id', '=', $director->id], ['is_read', '=', false]])->get();
+        $arr_notif = [];
+        foreach ($notif as $n) {
+            $user_send = User::find($n->user_send_id);
+            $arr_notif[] = [
+                'id' => $n->id,
+                'user_send_id' => $user_send->id,
+                'user_rec_fio' => $user_send->fio,
+                'content' => $n->content,
+                'send_date' => $n->send_date,
+                'is_read' => $n->is_read
+            ];
         }
+        $data = array('data' => array(
+            'user' => array(
+                'id' => $director->id,
+                'id_role' => $director->role_id,
+                'fio' => $director->fio,
+                'email' => $director->email,
+            ),
+            'metodists' => $arr_metodists,
+            'groups' => $arr_groups,
+            'notification' => $arr_notif
+        ));
         //return($data);
-        return(json_encode($data, JSON_UNESCAPED_UNICODE));
+        //return(json_encode($data, JSON_UNESCAPED_UNICODE));
+        return $data;
     }
 
-    public static function post($request){
+    public static function post($request)
+    {
         $data = $request->input('metodists');
-
-        foreach($data as $key => $value){
-            foreach($value as $v){
-                $group = Group::find($v);
-                $group->metodist_id = $key;
+        foreach ($data as $value) {
+            foreach ($value['add'] as $va) {
+                $group = Group::find($va);
+                $group->metodist_id = $value['id'];
                 $group->save();
             }
+            foreach ($value['delete'] as $vd) {
+                $group = Group::find($vd);
+                if ($group->metodist_id == $value['id']) {
+                    $group->metodist_id = null;
+                    $group->save();
+                }
+            }
         }
-
         return response([
             'response' => "ok"
         ], 200);

@@ -31,7 +31,7 @@ class LoginController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
-        if (!Auth::attempt($credentials)) {
+        if (!Auth::attempt($credentials, true)) {
             return response([
                 'message' => 'Provided email or password is incorrect'
             ], 422);
@@ -40,20 +40,22 @@ class LoginController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
         $token = $user->createToken('main')->plainTextToken;
-        $teachers = DB::connection('pgsql2')->select('
-                                                        select * from GetCoursOfTeacher(3)
-                                                    ');
+        // $teachers = DB::connection('pgsql2')->select('
+        //                                                 select * from GetCoursOfTeacher(3)
+        //                                             ');
         //return response(compact('user', 'token'));
-        
+
         return response([
             'user' => $user,
-            'token' => $token,
-            'moodle' => $teachers
+            'token' => $token
         ], 200);
     }
 
     public function logout(Request $request)
     {
+        return response([
+            'message' => $request
+        ], 204);
         /** @var \App\Models\User $user */
         $user = $request->user();
         $user->currentAccessToken()->delete();
@@ -62,14 +64,14 @@ class LoginController extends Controller
         ], 204);
     }
 
-    public static function login_web(){
+    public static function login_web()
+    {
         dd(campus_auth());
     }
-
-    
 }
 
-    function campus_auth(){
+function campus_auth()
+{
     # переменные
     $return = false;
 

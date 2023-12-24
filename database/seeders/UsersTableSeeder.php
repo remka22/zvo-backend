@@ -15,11 +15,11 @@ class UsersTableSeeder extends Seeder
     {
         $role = [
             [1, 'Админ', 'admin@mail.ru', 'tasar232!'],
-            [2, 'Студент', 'student@mail.ru', 'tasar232!'], 
-            [3, 'Преподаватель', 'teacher@mail.ru', 'tasar232!'],
-            [4, 'Методист', 'metodist@mail.ru', 'tasar232!'],
-            [5, 'Директор', 'director@mail.ru', 'tasar232!']
         ];
+        // [2, 'Студент', 'student@mail.ru', 'tasar232!'], 
+        // [3, 'Преподаватель', 'teacher@mail.ru', 'tasar232!'],
+        // [4, 'Методист', 'metodist@mail.ru', 'tasar232!'],
+        // [5, 'Директор', 'director@mail.ru', 'tasar232!']
         foreach($role as $r){
             User::create([
                 'role_id' => $r[0],

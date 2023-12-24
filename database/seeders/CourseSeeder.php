@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Moodle_course;
-use App\Models\Teacher_course;
+use App\Models\TeacherCourse;
 
 class CourseSeeder extends Seeder
 {
@@ -25,7 +25,7 @@ class CourseSeeder extends Seeder
         $teachers = User::where('role_id', 3)->get();
         foreach($teachers as $t){
             for ($i=0; $i < 4; $i++) { 
-                $t_course = new Teacher_course;
+                $t_course = new TeacherCourse;
                 $t_course->user_id = $t->id;
                 $t_course->course_id = rand(43, 1843);
                 $t_course->save();
