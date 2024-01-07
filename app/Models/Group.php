@@ -10,4 +10,8 @@ class Group extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = "groups";
+
+    public function getSubjects(){
+        return $this->hasMany('App\Models\Subject', 'group_id', 'id');
+    }
 }

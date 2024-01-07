@@ -1,0 +1,1283 @@
+{
+    "data": {
+        "user": {
+            "id": 6,
+            "id_role": 5,
+            "fio": "Директор",
+            "email": "director@mail.ru"
+        },
+        "metodists": [
+            {
+                "fio": "Методист2",
+                "id": 2,
+                "groups": []
+            },
+            {
+                "fio": "Методист3",
+                "id": 3,
+                "groups": []
+            },
+            {
+                "fio": "Методист4",
+                "id": 4,
+                "groups": []
+            },
+            {
+                "fio": "Методист5",
+                "id": 5,
+                "groups": []
+            },
+            {
+                "fio": "Методист1",
+                "id": 1,
+                "groups": [
+                    {
+                        "id": 7,
+                        "short_name": "КНбз-23-1",
+                        "year": 23,
+                        "number": 1
+                    },
+                    {
+                        "id": 8,
+                        "short_name": "НГДДСз-23-1",
+                        "year": 23,
+                        "number": 1
+                    },
+                    {
+                        "id": 9,
+                        "short_name": "НГДДСз-23-2",
+                        "year": 23,
+                        "number": 2
+                    },
+                    {
+                        "id": 20,
+                        "short_name": "ХТбз-23-1",
+                        "year": 23,
+                        "number": 1
+                    },
+                    {
+                        "id": 23,
+                        "short_name": "ХТбз-21-1",
+                        "year": 21,
+                        "number": 1
+                    },
+                    {
+                        "id": 3,
+                        "short_name": "НБз-21-1",
+                        "year": 21,
+                        "number": 1
+                    },
+                    {
+                        "id": 5,
+                        "short_name": "БЖТбз-23-2",
+                        "year": 23,
+                        "number": 2
+                    },
+                    {
+                        "id": 21,
+                        "short_name": "ХТбз-19-1",
+                        "year": 19,
+                        "number": 1
+                    }
+                ]
+            }
+        ],
+        "groups": [
+            {
+                "id": 1,
+                "short_name": "НБз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 2,
+                "short_name": "НБз-23-2",
+                "year": 23,
+                "number": 2
+            },
+            {
+                "id": 10,
+                "short_name": "НГДСз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 11,
+                "short_name": "НГДСз-23-2",
+                "year": 23,
+                "number": 2
+            },
+            {
+                "id": 12,
+                "short_name": "НГЛСз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 13,
+                "short_name": "НГДСз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 14,
+                "short_name": "НГДСз-19-2",
+                "year": 19,
+                "number": 2
+            },
+            {
+                "id": 15,
+                "short_name": "НГДСз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 16,
+                "short_name": "НГДСз-20-2",
+                "year": 20,
+                "number": 2
+            },
+            {
+                "id": 17,
+                "short_name": "ААбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 18,
+                "short_name": "ГМз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 19,
+                "short_name": "ТВбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 22,
+                "short_name": "ХТбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 24,
+                "short_name": "ХТбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 25,
+                "short_name": "ЭСбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 26,
+                "short_name": "ЭСбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 27,
+                "short_name": "ЭПбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 28,
+                "short_name": "ЭПбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 29,
+                "short_name": "ЭПбз-20-2",
+                "year": 20,
+                "number": 2
+            },
+            {
+                "id": 30,
+                "short_name": "ЭСбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 31,
+                "short_name": "МЦбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 32,
+                "short_name": "МЦбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 33,
+                "short_name": "ПГСбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 34,
+                "short_name": "ПГСбз-21-2",
+                "year": 21,
+                "number": 2
+            },
+            {
+                "id": 35,
+                "short_name": "ТЭбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 36,
+                "short_name": "ТЭбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 37,
+                "short_name": "ТЭбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 38,
+                "short_name": "АТПбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 39,
+                "short_name": "КТбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 40,
+                "short_name": "КТбз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 41,
+                "short_name": "МТбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 42,
+                "short_name": "ЭЛбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 43,
+                "short_name": "ЭВМбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 44,
+                "short_name": "АСУбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 45,
+                "short_name": "АСУбз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 46,
+                "short_name": "ЭВМбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 47,
+                "short_name": "АСУбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 48,
+                "short_name": "ЭВМбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 49,
+                "short_name": "ЭПЭБз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 50,
+                "short_name": "ЭПЭБз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 51,
+                "short_name": "ЭПЭБз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 52,
+                "short_name": "ЭПЭБз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 53,
+                "short_name": "ЭПЭБз-21-2",
+                "year": 21,
+                "number": 2
+            },
+            {
+                "id": 54,
+                "short_name": "ЭПЭБз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 55,
+                "short_name": "БЖТбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 56,
+                "short_name": "АТПбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 57,
+                "short_name": "ЭЛбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 58,
+                "short_name": "ЭСбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 59,
+                "short_name": "ААбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 60,
+                "short_name": "ЛИМбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 61,
+                "short_name": "ЭАПЭбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 62,
+                "short_name": "ЭПбз-21-2",
+                "year": 21,
+                "number": 2
+            },
+            {
+                "id": 63,
+                "short_name": "СМз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 64,
+                "short_name": "СМз-18-1",
+                "year": 18,
+                "number": 1
+            },
+            {
+                "id": 65,
+                "short_name": "СМз-18-2",
+                "year": 18,
+                "number": 2
+            },
+            {
+                "id": 66,
+                "short_name": "СМз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 67,
+                "short_name": "ААбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 68,
+                "short_name": "КТбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 69,
+                "short_name": "КТбз-23-2",
+                "year": 23,
+                "number": 2
+            },
+            {
+                "id": 70,
+                "short_name": "ЛИМбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 71,
+                "short_name": "МТбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 72,
+                "short_name": "АСУбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 73,
+                "short_name": "РДбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 74,
+                "short_name": "РТз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 75,
+                "short_name": "СТЭбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 76,
+                "short_name": "ЭПбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 77,
+                "short_name": "МТбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 78,
+                "short_name": "МТбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 79,
+                "short_name": "МТбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 80,
+                "short_name": "НГДДСз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 81,
+                "short_name": "НГДДСз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 82,
+                "short_name": "НГДДСз-22-3",
+                "year": 22,
+                "number": 3
+            },
+            {
+                "id": 83,
+                "short_name": "НГДСз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 84,
+                "short_name": "НГДСз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 85,
+                "short_name": "НГДСз-22-3",
+                "year": 22,
+                "number": 3
+            },
+            {
+                "id": 86,
+                "short_name": "НГДСз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 87,
+                "short_name": "НГДСз-21-2",
+                "year": 21,
+                "number": 2
+            },
+            {
+                "id": 88,
+                "short_name": "НГДСз-21-3",
+                "year": 21,
+                "number": 3
+            },
+            {
+                "id": 89,
+                "short_name": "НГДСз-21-4",
+                "year": 21,
+                "number": 4
+            },
+            {
+                "id": 90,
+                "short_name": "СМз-17-1",
+                "year": 17,
+                "number": 1
+            },
+            {
+                "id": 91,
+                "short_name": "СМз-17-2",
+                "year": 17,
+                "number": 2
+            },
+            {
+                "id": 92,
+                "short_name": "СМз-17-3",
+                "year": 17,
+                "number": 3
+            },
+            {
+                "id": 93,
+                "short_name": "АДбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 94,
+                "short_name": "АДбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 95,
+                "short_name": "ГОз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 96,
+                "short_name": "МЦбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 97,
+                "short_name": "ОПз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 98,
+                "short_name": "МЦбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 99,
+                "short_name": "ТПбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 100,
+                "short_name": "МЦбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 101,
+                "short_name": "МЦбз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 102,
+                "short_name": "ТПбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 103,
+                "short_name": "ТПбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 104,
+                "short_name": "ОПз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 105,
+                "short_name": "СДМз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 106,
+                "short_name": "ГГз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 107,
+                "short_name": "ГГз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 108,
+                "short_name": "ГМз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 109,
+                "short_name": "ГОз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 110,
+                "short_name": "ГПз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 111,
+                "short_name": "ОПз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 112,
+                "short_name": "СДМз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 113,
+                "short_name": "НБз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 114,
+                "short_name": "НБз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 115,
+                "short_name": "КТбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 116,
+                "short_name": "КТбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 117,
+                "short_name": "ГГз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 118,
+                "short_name": "КНбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 119,
+                "short_name": "КНбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 120,
+                "short_name": "ГСХбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 121,
+                "short_name": "ГСХбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 122,
+                "short_name": "АДбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 123,
+                "short_name": "ГСХбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 124,
+                "short_name": "КТбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 125,
+                "short_name": "КНбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 126,
+                "short_name": "БЖТбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 127,
+                "short_name": "БЖТбз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 128,
+                "short_name": "ИРбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 129,
+                "short_name": "РДбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 130,
+                "short_name": "СДМз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 131,
+                "short_name": "СДМз-18-1",
+                "year": 18,
+                "number": 1
+            },
+            {
+                "id": 132,
+                "short_name": "СДМз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 133,
+                "short_name": "ААбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 134,
+                "short_name": "БЖТбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 135,
+                "short_name": "БЖТбз-19-2",
+                "year": 19,
+                "number": 2
+            },
+            {
+                "id": 6,
+                "short_name": "ГПз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 4,
+                "short_name": "НБз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 136,
+                "short_name": "БЖТбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 137,
+                "short_name": "БЖТбз-21-2",
+                "year": 21,
+                "number": 2
+            },
+            {
+                "id": 138,
+                "short_name": "ААбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 139,
+                "short_name": "УПбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 140,
+                "short_name": "УТСбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 141,
+                "short_name": "БЖТбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 142,
+                "short_name": "БЖТбз-20-2",
+                "year": 20,
+                "number": 2
+            },
+            {
+                "id": 143,
+                "short_name": "СДМз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 144,
+                "short_name": "ГГз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 145,
+                "short_name": "ГГз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 146,
+                "short_name": "ГГз-21-2",
+                "year": 21,
+                "number": 2
+            },
+            {
+                "id": 147,
+                "short_name": "ГГз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 148,
+                "short_name": "ПМбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 149,
+                "short_name": "ПГСбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 150,
+                "short_name": "ПГСбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 151,
+                "short_name": "ЭЛбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 152,
+                "short_name": "ЭЛбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 153,
+                "short_name": "ЭЛбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 154,
+                "short_name": "ИРбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 155,
+                "short_name": "ЭПбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 156,
+                "short_name": "ЭПбз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 157,
+                "short_name": "ГМз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 158,
+                "short_name": "ГПз-18-1",
+                "year": 18,
+                "number": 1
+            },
+            {
+                "id": 159,
+                "short_name": "ГОз-18-1",
+                "year": 18,
+                "number": 1
+            },
+            {
+                "id": 160,
+                "short_name": "ГОз-17-1",
+                "year": 17,
+                "number": 1
+            },
+            {
+                "id": 161,
+                "short_name": "ГПз-17-1",
+                "year": 17,
+                "number": 1
+            },
+            {
+                "id": 162,
+                "short_name": "ГМз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 163,
+                "short_name": "ГОз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 164,
+                "short_name": "ГОз-21-2",
+                "year": 21,
+                "number": 2
+            },
+            {
+                "id": 165,
+                "short_name": "ГПз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 166,
+                "short_name": "ГОз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 167,
+                "short_name": "ГПз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 168,
+                "short_name": "ЭПбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 169,
+                "short_name": "ЭПбз-19-2",
+                "year": 19,
+                "number": 2
+            },
+            {
+                "id": 170,
+                "short_name": "РТз-18-1",
+                "year": 18,
+                "number": 1
+            },
+            {
+                "id": 171,
+                "short_name": "ГАз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 172,
+                "short_name": "АТПбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 173,
+                "short_name": "КНбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 174,
+                "short_name": "УТСбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 175,
+                "short_name": "ЛИМбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 176,
+                "short_name": "РТз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 177,
+                "short_name": "АСУбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 178,
+                "short_name": "РТз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 179,
+                "short_name": "АСУбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 180,
+                "short_name": "ГОз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 181,
+                "short_name": "ГПз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 182,
+                "short_name": "ГГз-18-1",
+                "year": 18,
+                "number": 1
+            },
+            {
+                "id": 183,
+                "short_name": "ГМз-18-1",
+                "year": 18,
+                "number": 1
+            },
+            {
+                "id": 184,
+                "short_name": "ГМз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 185,
+                "short_name": "ФКбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 186,
+                "short_name": "ФКбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 187,
+                "short_name": "ЭСбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 188,
+                "short_name": "ИРбз-23-1",
+                "year": 23,
+                "number": 1
+            },
+            {
+                "id": 189,
+                "short_name": "ГГз-17-1",
+                "year": 17,
+                "number": 1
+            },
+            {
+                "id": 190,
+                "short_name": "СРбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 191,
+                "short_name": "ЭПОбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 192,
+                "short_name": "СТЭбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 193,
+                "short_name": "ЭАПЭбз-22-1",
+                "year": 22,
+                "number": 1
+            },
+            {
+                "id": 194,
+                "short_name": "ЭВМбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 195,
+                "short_name": "АТПбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 196,
+                "short_name": "ЭВМбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 197,
+                "short_name": "ТПбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 198,
+                "short_name": "ЮРГбв-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 199,
+                "short_name": "РДбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 200,
+                "short_name": "РДбз-20-1",
+                "year": 20,
+                "number": 1
+            },
+            {
+                "id": 201,
+                "short_name": "РДбз-19-1",
+                "year": 19,
+                "number": 1
+            },
+            {
+                "id": 202,
+                "short_name": "ГАз-17-1",
+                "year": 17,
+                "number": 1
+            },
+            {
+                "id": 203,
+                "short_name": "АТПбз-21-1",
+                "year": 21,
+                "number": 1
+            },
+            {
+                "id": 204,
+                "short_name": "ГМз-17-1",
+                "year": 17,
+                "number": 1
+            },
+            {
+                "id": 205,
+                "short_name": " НГДДСз-22-3",
+                "year": 22,
+                "number": 3
+            },
+            {
+                "id": 206,
+                "short_name": " НГДСз-22-2",
+                "year": 22,
+                "number": 2
+            },
+            {
+                "id": 207,
+                "short_name": " РТз-22-1",
+                "year": 22,
+                "number": 1
+            }
+        ],
+        "notification": []
+    }
+}

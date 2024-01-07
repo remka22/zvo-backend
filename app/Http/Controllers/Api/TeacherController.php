@@ -17,8 +17,7 @@ class TeacherController extends Controller
 {
     public static function get($request)
     {
-        $id_teacher = $request->get('id');
-        $teacher = User::find($id_teacher);
+        $teacher = $request->user();
         $s_teachers = SubjectTeacher::where('teacher_id', $teacher->id)->get();
         $arr_subjects = [];
         foreach ($s_teachers as $st) {

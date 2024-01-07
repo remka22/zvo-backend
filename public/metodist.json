@@ -1,0 +1,2566 @@
+{
+    "data": {
+        "user": {
+            "id_role": 4,
+            "id": 1,
+            "fio": "Методист1",
+            "email": "metodist1@mail.ru"
+        },
+        "groups": [
+            {
+                "id": 7,
+                "short_name": "КНбз-23-1",
+                "year": 23,
+                "number": 1,
+                "subjects": [
+                    {
+                        "id": 117,
+                        "name": "Иностранный язык",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 138,
+                                "teacher_id": 8,
+                                "teacher_fio": "Авдосенко Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 150,
+                                "teacher_id": 263,
+                                "teacher_fio": "Костина К.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 118,
+                        "name": "Основы деловой коммуникации",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 139,
+                                "teacher_id": 36,
+                                "teacher_fio": "Балдынова А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 145,
+                                "teacher_id": 181,
+                                "teacher_fio": "Ербаева Л.Л.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 119,
+                        "name": "Основы технологии электронного и дистанционного обучения (факультатив)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 140,
+                                "teacher_id": 103,
+                                "teacher_fio": "Волкова Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 120,
+                        "name": "Инженерная и компьютерная графика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 141,
+                                "teacher_id": 124,
+                                "teacher_fio": "Горбань А.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 148,
+                                "teacher_id": 238,
+                                "teacher_fio": "Климова Л.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 121,
+                        "name": "Основы российской государственности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 142,
+                                "teacher_id": 128,
+                                "teacher_fio": "Горощенова О.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 122,
+                        "name": "Правоведение (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 143,
+                                "teacher_id": 150,
+                                "teacher_fio": "Деранжулина Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 123,
+                        "name": "Основы кадастра недвижимости (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 144,
+                                "teacher_id": 153,
+                                "teacher_fio": "Дмитриев Г.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 124,
+                        "name": "Экономика (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 146,
+                                "teacher_id": 195,
+                                "teacher_fio": "Захаров С.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 125,
+                        "name": "Геодезия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 147,
+                                "teacher_id": 234,
+                                "teacher_fio": "Клевцов Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 126,
+                        "name": "История России",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 149,
+                                "teacher_id": 241,
+                                "teacher_fio": "Козлов Д.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 127,
+                        "name": "Химия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 151,
+                                "teacher_id": 282,
+                                "teacher_fio": "Кузнецова О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 159,
+                                "teacher_id": 531,
+                                "teacher_fio": "Филатова Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 128,
+                        "name": "Информационные технологии",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 152,
+                                "teacher_id": 313,
+                                "teacher_fio": "Лисичко О.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 129,
+                        "name": "Экспертиза грунтовых условий (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 153,
+                                "teacher_id": 359,
+                                "teacher_fio": "Никишина О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 130,
+                        "name": "Математика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 154,
+                                "teacher_id": 378,
+                                "teacher_fio": "Палеева М.Л.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 155,
+                                "teacher_id": 434,
+                                "teacher_fio": "Рууз М.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 131,
+                        "name": "Физика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 156,
+                                "teacher_id": 435,
+                                "teacher_fio": "Рыбарчук О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 132,
+                        "name": "Философия (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 157,
+                                "teacher_id": 499,
+                                "teacher_fio": "Тетенькин А.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 133,
+                        "name": "Геоинформационные системы в землеустройстве и кадастрах  (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 158,
+                                "teacher_id": 508,
+                                "teacher_fio": "Торосян Р.П.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 134,
+                        "name": "Основы инклюзивного взаимодействия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 160,
+                                "teacher_id": 532,
+                                "teacher_fio": "Финогенко Е.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 135,
+                        "name": "Геодезические основы землеустроительных и кадастровых работ (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 161,
+                                "teacher_id": 543,
+                                "teacher_fio": "Хоренко Т.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 136,
+                        "name": "Критическое и системное мышление",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 162,
+                                "teacher_id": 573,
+                                "teacher_fio": "Шафоростов А.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "short_name": "НГДДСз-23-1",
+                "year": 23,
+                "number": 1,
+                "subjects": [
+                    {
+                        "id": 137,
+                        "name": "Основы нефтегазового дела",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 163,
+                                "teacher_id": 9,
+                                "teacher_fio": "Аверкина Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 138,
+                        "name": "Основы деловой коммуникации",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 164,
+                                "teacher_id": 36,
+                                "teacher_fio": "Балдынова А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 173,
+                                "teacher_id": 181,
+                                "teacher_fio": "Ербаева Л.Л.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 139,
+                        "name": "Правоведение (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 165,
+                                "teacher_id": 54,
+                                "teacher_fio": "Белоусов В.Н.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 140,
+                        "name": "Инженерная и компьютерная графика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 166,
+                                "teacher_id": 97,
+                                "teacher_fio": "Верхотурова Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 168,
+                                "teacher_id": 124,
+                                "teacher_fio": "Горбань А.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 141,
+                        "name": "Основы технологии электронного и дистанционного обучения (факультатив)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 167,
+                                "teacher_id": 103,
+                                "teacher_fio": "Волкова Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 178,
+                                "teacher_id": 313,
+                                "teacher_fio": "Лисичко О.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 142,
+                        "name": "Математика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 169,
+                                "teacher_id": 145,
+                                "teacher_fio": "Дабаева М.Ж.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 143,
+                        "name": "Химия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 170,
+                                "teacher_id": 167,
+                                "teacher_fio": "Дударев В.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 144,
+                        "name": "Информационные технологии",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 171,
+                                "teacher_id": 168,
+                                "teacher_fio": "Дударева О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 179,
+                                "teacher_id": 476,
+                                "teacher_fio": "Солодуша С.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 145,
+                        "name": "Основы российской государственности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 172,
+                                "teacher_id": 180,
+                                "teacher_fio": "Емельянова Ю.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 146,
+                        "name": "Основы инклюзивного взаимодействия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 174,
+                                "teacher_id": 255,
+                                "teacher_fio": "Копалкина Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 180,
+                                "teacher_id": 532,
+                                "teacher_fio": "Финогенко Е.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 147,
+                        "name": "Иностранный язык",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 175,
+                                "teacher_id": 263,
+                                "teacher_fio": "Костина К.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 176,
+                                "teacher_id": 276,
+                                "teacher_fio": "Кувшинова Н.Н.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 148,
+                        "name": "Физика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 177,
+                                "teacher_id": 283,
+                                "teacher_fio": "Кузнецова С.Ю.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 149,
+                        "name": "История России",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 181,
+                                "teacher_id": 561,
+                                "teacher_fio": "Чирикова М.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 150,
+                        "name": "Критическое и системное мышление",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 182,
+                                "teacher_id": 573,
+                                "teacher_fio": "Шафоростов А.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "short_name": "НГДДСз-23-2",
+                "year": 23,
+                "number": 2,
+                "subjects": [
+                    {
+                        "id": 151,
+                        "name": "Основы нефтегазового дела",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 183,
+                                "teacher_id": 9,
+                                "teacher_fio": "Аверкина Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 152,
+                        "name": "Основы деловой коммуникации",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 184,
+                                "teacher_id": 36,
+                                "teacher_fio": "Балдынова А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 193,
+                                "teacher_id": 181,
+                                "teacher_fio": "Ербаева Л.Л.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 153,
+                        "name": "Инженерная и компьютерная графика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 185,
+                                "teacher_id": 51,
+                                "teacher_fio": "Белокрылова О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 188,
+                                "teacher_id": 124,
+                                "teacher_fio": "Горбань А.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 154,
+                        "name": "Правоведение (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 186,
+                                "teacher_id": 54,
+                                "teacher_fio": "Белоусов В.Н.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 155,
+                        "name": "Основы технологии электронного и дистанционного обучения (факультатив)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 187,
+                                "teacher_id": 103,
+                                "teacher_fio": "Волкова Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 197,
+                                "teacher_id": 313,
+                                "teacher_fio": "Лисичко О.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 156,
+                        "name": "Математика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 189,
+                                "teacher_id": 145,
+                                "teacher_fio": "Дабаева М.Ж.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 157,
+                        "name": "Химия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 190,
+                                "teacher_id": 167,
+                                "teacher_fio": "Дударев В.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 158,
+                        "name": "Информационные технологии",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 191,
+                                "teacher_id": 168,
+                                "teacher_fio": "Дударева О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 198,
+                                "teacher_id": 476,
+                                "teacher_fio": "Солодуша С.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 159,
+                        "name": "Основы российской государственности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 192,
+                                "teacher_id": 180,
+                                "teacher_fio": "Емельянова Ю.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 160,
+                        "name": "Основы инклюзивного взаимодействия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 194,
+                                "teacher_id": 255,
+                                "teacher_fio": "Копалкина Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 199,
+                                "teacher_id": 532,
+                                "teacher_fio": "Финогенко Е.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 161,
+                        "name": "Иностранный язык",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 195,
+                                "teacher_id": 263,
+                                "teacher_fio": "Костина К.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 202,
+                                "teacher_id": 596,
+                                "teacher_fio": "Ю Е.Д.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 162,
+                        "name": "Физика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 196,
+                                "teacher_id": 283,
+                                "teacher_fio": "Кузнецова С.Ю.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 163,
+                        "name": "История России",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 200,
+                                "teacher_id": 561,
+                                "teacher_fio": "Чирикова М.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 164,
+                        "name": "Критическое и системное мышление",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 201,
+                                "teacher_id": 573,
+                                "teacher_fio": "Шафоростов А.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 20,
+                "short_name": "ХТбз-23-1",
+                "year": 23,
+                "number": 1,
+                "subjects": [
+                    {
+                        "id": 361,
+                        "name": "Введение в профессиональную деятельность",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 421,
+                                "teacher_id": 13,
+                                "teacher_fio": "Айзина Ю.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 362,
+                        "name": "Теория химического эксперимента (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 422,
+                                "teacher_id": 13,
+                                "teacher_fio": "Айзина Ю.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 364,
+                        "name": "Физика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 424,
+                                "teacher_id": 38,
+                                "teacher_fio": "Баранов Е.О.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 365,
+                        "name": "Аналитическая химия и физико-химические методы анализа (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 425,
+                                "teacher_id": 47,
+                                "teacher_fio": "Бегунова Л.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 366,
+                        "name": "История России",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 426,
+                                "teacher_id": 89,
+                                "teacher_fio": "Ванина И.Ю.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 367,
+                        "name": "Основы инклюзивного взаимодействия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 427,
+                                "teacher_id": 109,
+                                "teacher_fio": "Гаврилова Н.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 428,
+                                "teacher_id": 137,
+                                "teacher_fio": "Гузик М.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 368,
+                        "name": "Правоведение (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 429,
+                                "teacher_id": 150,
+                                "teacher_fio": "Деранжулина Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 369,
+                        "name": "Основы общей и неорганической химии",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 430,
+                                "teacher_id": 167,
+                                "teacher_fio": "Дударев В.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 370,
+                        "name": "Основы российской государственности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 431,
+                                "teacher_id": 180,
+                                "teacher_fio": "Емельянова Ю.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 371,
+                        "name": "Основы деловой коммуникации",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 432,
+                                "teacher_id": 181,
+                                "teacher_fio": "Ербаева Л.Л.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 372,
+                        "name": "Экономика (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 433,
+                                "teacher_id": 195,
+                                "teacher_fio": "Захаров С.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 373,
+                        "name": "Инженерная и компьютерная графика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 434,
+                                "teacher_id": 210,
+                                "teacher_fio": "Иванова М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 435,
+                                "teacher_id": 238,
+                                "teacher_fio": "Климова Л.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 374,
+                        "name": "Основы технологии электронного и дистанционного обучения (факультатив)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 437,
+                                "teacher_id": 313,
+                                "teacher_fio": "Лисичко О.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 375,
+                        "name": "Органическая химия (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 438,
+                                "teacher_id": 462,
+                                "teacher_fio": "Сипкина Е.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 376,
+                        "name": "Информационные технологии",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 439,
+                                "teacher_id": 476,
+                                "teacher_fio": "Солодуша С.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 440,
+                                "teacher_id": 479,
+                                "teacher_fio": "Солопанов Е.Ю.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 377,
+                        "name": "Философия (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 441,
+                                "teacher_id": 499,
+                                "teacher_fio": "Тетенькин А.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 378,
+                        "name": "Математика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 442,
+                                "teacher_id": 509,
+                                "teacher_fio": "Тренёва Г.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 379,
+                        "name": "Прикладная механика (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 443,
+                                "teacher_id": 520,
+                                "teacher_fio": "Умнов В.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 380,
+                        "name": "Критическое и системное мышление",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 444,
+                                "teacher_id": 573,
+                                "teacher_fio": "Шафоростов А.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 363,
+                        "name": "Иностранный язык",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 436,
+                                "teacher_id": 263,
+                                "teacher_fio": "Костина К.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 423,
+                                "teacher_id": 24,
+                                "teacher_fio": "Арипова Д.А.",
+                                "id_teacher_course": 2513,
+                                "comment": null,
+                                "course": [
+                                    {
+                                        "id": 584,
+                                        "name": "Электронны курс541",
+                                        "id_link": 65081
+                                    }
+                                ],
+                                "need_task": [
+                                    {
+                                        "id": 1,
+                                        "name": "Задание 1",
+                                        "id_link": 75406,
+                                        "type": "assign"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 23,
+                "short_name": "ХТбз-21-1",
+                "year": 21,
+                "number": 1,
+                "subjects": [
+                    {
+                        "id": 416,
+                        "name": "Теория гетерогенного катализа (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 480,
+                                "teacher_id": 13,
+                                "teacher_fio": "Айзина Ю.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 417,
+                        "name": "Математические методы решения профессиональных задач",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 481,
+                                "teacher_id": 45,
+                                "teacher_fio": "Баяндин В.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 418,
+                        "name": "Системы автоматизированного проектирования нефтехимических производств (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 482,
+                                "teacher_id": 67,
+                                "teacher_fio": "Боженков Г.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 419,
+                        "name": "Технология углеродных и композиционных материалов (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 483,
+                                "teacher_id": 67,
+                                "teacher_fio": "Боженков Г.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 420,
+                        "name": "Теоретические основы химической технологии топлив и углеродных материалов (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 484,
+                                "teacher_id": 170,
+                                "teacher_fio": "Дьячкова С.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 421,
+                        "name": "Теория трансформации молекулярных систем",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 485,
+                                "teacher_id": 170,
+                                "teacher_fio": "Дьячкова С.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 422,
+                        "name": "Химия и технология органических веществ (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 486,
+                                "teacher_id": 170,
+                                "teacher_fio": "Дьячкова С.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 423,
+                        "name": "Основы проектной деятельности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 487,
+                                "teacher_id": 288,
+                                "teacher_fio": "Куклина М.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 424,
+                        "name": "Безопасность жизнедеятельности (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 488,
+                                "teacher_id": 326,
+                                "teacher_fio": "Максимова М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 425,
+                        "name": "Общая химическая технология",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 489,
+                                "teacher_id": 365,
+                                "teacher_fio": "Оборина М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 426,
+                        "name": "Процессы и аппараты химической технологии (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 490,
+                                "teacher_id": 365,
+                                "teacher_fio": "Оборина М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 427,
+                        "name": "Технический анализ и контроль производства нефтепродуктов (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 491,
+                                "teacher_id": 365,
+                                "teacher_fio": "Оборина М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 428,
+                        "name": "Физико-химия природных энергоносителей и углеродных материалов (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 492,
+                                "teacher_id": 397,
+                                "teacher_fio": "Подгорбунская Т.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 429,
+                        "name": "Иностранный язык",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 493,
+                                "teacher_id": 402,
+                                "teacher_fio": "Полонская О.Ю.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 430,
+                        "name": "Организация и управление производством",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 494,
+                                "teacher_id": 425,
+                                "teacher_fio": "Репинский О.Д.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 431,
+                        "name": "Мембранные процессы",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 495,
+                                "teacher_id": 454,
+                                "teacher_fio": "Селезнев А.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 432,
+                        "name": "Коллоидная химия нефтяных дисперсных систем",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 496,
+                                "teacher_id": 472,
+                                "teacher_fio": "Соболева В.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 433,
+                        "name": "Физическая химия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 497,
+                                "teacher_id": 531,
+                                "teacher_fio": "Филатова Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 434,
+                        "name": "Материаловедение и защита от коррозии в химико-технологических процессах",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 498,
+                                "teacher_id": 547,
+                                "teacher_fio": "Чайка А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 435,
+                        "name": "Энерготехнология химических производств",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 499,
+                                "teacher_id": 547,
+                                "teacher_fio": "Чайка А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 436,
+                        "name": "Инструментальные методы исследования органических веществ",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 500,
+                                "teacher_id": 566,
+                                "teacher_fio": "Шаглаева Н.С.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 437,
+                        "name": "Химия и технология производства полимерных и композиционных материалов (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 501,
+                                "teacher_id": 566,
+                                "teacher_fio": "Шаглаева Н.С.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 438,
+                        "name": "Моделирование химико-технологических процессов (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 502,
+                                "teacher_id": 602,
+                                "teacher_fio": "Янчуковская Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 439,
+                        "name": "Химические реакторы",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 503,
+                                "teacher_id": 602,
+                                "teacher_fio": "Янчуковская Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "short_name": "НБз-21-1",
+                "year": 21,
+                "number": 1,
+                "subjects": [
+                    {
+                        "id": 49,
+                        "name": "Муниципальное право (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 57,
+                                "teacher_id": 7,
+                                "teacher_fio": "Абрамитов С.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 50,
+                        "name": "Основы правотворчества и юридической техники (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 58,
+                                "teacher_id": 7,
+                                "teacher_fio": "Абрамитов С.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 51,
+                        "name": "Государственная служба в Российской Федерации (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 59,
+                                "teacher_id": 76,
+                                "teacher_fio": "Бруслина А.С.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 52,
+                        "name": "Уголовное право",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 60,
+                                "teacher_id": 116,
+                                "teacher_fio": "Герасимова Ю.Р.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 53,
+                        "name": "Гражданское процессуальное право (гражданский процесс) (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 61,
+                                "teacher_id": 129,
+                                "teacher_fio": "Гребенюк М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 54,
+                        "name": "Конституционное право зарубежных стран",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 62,
+                                "teacher_id": 142,
+                                "teacher_fio": "Гусева И.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 55,
+                        "name": "Избирательное право и процесс (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 63,
+                                "teacher_id": 150,
+                                "teacher_fio": "Деранжулина Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 56,
+                        "name": "Информационное право (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 64,
+                                "teacher_id": 150,
+                                "teacher_fio": "Деранжулина Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 57,
+                        "name": "Организационно-правовое обеспечение информационной безопасности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 65,
+                                "teacher_id": 150,
+                                "teacher_fio": "Деранжулина Е.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 58,
+                        "name": "Уголовно-процессуальное право (уголовный процесс) (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 66,
+                                "teacher_id": 155,
+                                "teacher_fio": "Днепровская М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 59,
+                        "name": "Цифровые технологии в обеспечении безопасности (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 67,
+                                "teacher_id": 155,
+                                "teacher_fio": "Днепровская М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 60,
+                        "name": "Система органов обеспечения национальной безопасности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 68,
+                                "teacher_id": 176,
+                                "teacher_fio": "Егорова Ю.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 61,
+                        "name": "Гражданское право",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 69,
+                                "teacher_id": 381,
+                                "teacher_fio": "Пахаруков А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 62,
+                        "name": "Предпринимательское право",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 70,
+                                "teacher_id": 381,
+                                "teacher_fio": "Пахаруков А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 63,
+                        "name": "Иностранный язык",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 71,
+                                "teacher_id": 382,
+                                "teacher_fio": "Пашаева И.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 64,
+                        "name": "Основы проектной деятельности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 72,
+                                "teacher_id": 522,
+                                "teacher_fio": "Уразова Н.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 65,
+                        "name": "Земельное право (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 73,
+                                "teacher_id": 554,
+                                "teacher_fio": "Чернова Н.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 66,
+                        "name": "Международное право",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 74,
+                                "teacher_id": 562,
+                                "teacher_fio": "Чуксина В.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 67,
+                        "name": "Юридическая психология",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 75,
+                                "teacher_id": 567,
+                                "teacher_fio": "Шаевич А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 68,
+                        "name": "Административное право",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 76,
+                                "teacher_id": 584,
+                                "teacher_fio": "Шиш Е.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 69,
+                        "name": "Финансовое право (установочная)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 77,
+                                "teacher_id": 605,
+                                "teacher_fio": "Ярунина А.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "short_name": "БЖТбз-23-2",
+                "year": 23,
+                "number": 2,
+                "subjects": [
+                    {
+                        "id": 91,
+                        "name": "Иностранный язык",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 99,
+                                "teacher_id": 8,
+                                "teacher_fio": "Авдосенко Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 101,
+                                "teacher_id": 61,
+                                "teacher_fio": "Беляева Ю.С.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 110,
+                                "teacher_id": 263,
+                                "teacher_fio": "Костина К.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 92,
+                        "name": "Основы деловой коммуникации",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 100,
+                                "teacher_id": 23,
+                                "teacher_fio": "Апончук И.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 108,
+                                "teacher_id": 181,
+                                "teacher_fio": "Ербаева Л.Л.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 93,
+                        "name": "Химия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 102,
+                                "teacher_id": 74,
+                                "teacher_fio": "Бочкарева С.С.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 111,
+                                "teacher_id": 282,
+                                "teacher_fio": "Кузнецова О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 94,
+                        "name": "Основы технологии электронного и дистанционного обучения (факультатив)",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 103,
+                                "teacher_id": 103,
+                                "teacher_fio": "Волкова Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 95,
+                        "name": "Информационные технологии",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 104,
+                                "teacher_id": 103,
+                                "teacher_fio": "Волкова Е.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 112,
+                                "teacher_id": 313,
+                                "teacher_fio": "Лисичко О.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 96,
+                        "name": "Инженерная и компьютерная графика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 105,
+                                "teacher_id": 124,
+                                "teacher_fio": "Горбань А.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 97,
+                        "name": "Основы российской государственности",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 106,
+                                "teacher_id": 128,
+                                "teacher_fio": "Горощенова О.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 98,
+                        "name": "Основы инклюзивного взаимодействия",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 107,
+                                "teacher_id": 137,
+                                "teacher_fio": "Гузик М.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            },
+                            {
+                                "id": 116,
+                                "teacher_id": 532,
+                                "teacher_fio": "Финогенко Е.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 99,
+                        "name": "История России",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 109,
+                                "teacher_id": 241,
+                                "teacher_fio": "Козлов Д.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 100,
+                        "name": "Математика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 113,
+                                "teacher_id": 434,
+                                "teacher_fio": "Рууз М.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 101,
+                        "name": "Физика",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 114,
+                                "teacher_id": 435,
+                                "teacher_fio": "Рыбарчук О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 102,
+                        "name": "Введение в профессиональную деятельность",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 115,
+                                "teacher_id": 502,
+                                "teacher_fio": "Тимофеев С.С.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 103,
+                        "name": "Критическое и системное мышление",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 117,
+                                "teacher_id": 573,
+                                "teacher_fio": "Шафоростов А.И.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 21,
+                "short_name": "ХТбз-19-1",
+                "year": 19,
+                "number": 1,
+                "subjects": [
+                    {
+                        "id": 381,
+                        "name": "Химия присадок для нефтепродуктов",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 445,
+                                "teacher_id": 13,
+                                "teacher_fio": "Айзина Ю.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 382,
+                        "name": "Подготовка, транспортировка и хранение нефти и газа",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 446,
+                                "teacher_id": 45,
+                                "teacher_fio": "Баяндин В.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 383,
+                        "name": "Проектирование и оборудование нефтеперерабатывающих предприятий",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 447,
+                                "teacher_id": 45,
+                                "teacher_fio": "Баяндин В.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 384,
+                        "name": "Химмотология топлив и смазочных материалов",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 448,
+                                "teacher_id": 50,
+                                "teacher_fio": "Белозерова О.В.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 385,
+                        "name": "Системы управления химико-технологическими процессами и метрология",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 449,
+                                "teacher_id": 122,
+                                "teacher_fio": "Голодков Ю.Э.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 386,
+                        "name": "Химическая технология природных энергоносителей и углеродных материалов",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 450,
+                                "teacher_id": 170,
+                                "teacher_fio": "Дьячкова С.Г.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 387,
+                        "name": "Технология элементоорганических соединений",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 451,
+                                "teacher_id": 364,
+                                "teacher_fio": "Оборина Е.Н.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 388,
+                        "name": "Технология альтернативных топлив",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 452,
+                                "teacher_id": 365,
+                                "teacher_fio": "Оборина М.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 389,
+                        "name": "Проектная деятельность",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 453,
+                                "teacher_id": 397,
+                                "teacher_fio": "Подгорбунская Т.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 390,
+                        "name": "Технология производства нефтяных масел",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 454,
+                                "teacher_id": 397,
+                                "teacher_fio": "Подгорбунская Т.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 391,
+                        "name": "Технология переработки высоковязких нефтей и природных нефтебитумов",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 455,
+                                "teacher_id": 523,
+                                "teacher_fio": "Уханев С.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 392,
+                        "name": "Технология химико-фармацевтических препаратов",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 456,
+                                "teacher_id": 523,
+                                "teacher_fio": "Уханев С.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 393,
+                        "name": "Технологии очистки стоков и выбросов нефтехимических предприятий",
+                        "id_teacher_subject": null,
+                        "maby_subject": [
+                            {
+                                "id": 457,
+                                "teacher_id": 547,
+                                "teacher_fio": "Чайка А.А.",
+                                "id_teacher_course": null,
+                                "comment": null,
+                                "course": [],
+                                "need_task": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "norif": [
+            {
+                "id": 1,
+                "user_send_id": 6,
+                "user_rec_fio": "Директор",
+                "content": "Назначить АСУбз-22-1 проепдаватля Лукянова Н.Д. по предмету сети",
+                "send_date": "2023-12-24",
+                "is_read": false
+            }
+        ]
+    }
+}

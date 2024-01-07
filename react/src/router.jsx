@@ -16,10 +16,6 @@ const router = createBrowserRouter([
     element: <DefaultLayout/>,
     children: [
       {
-        path: '/',
-        element: <Navigate to="/l"/>
-      },
-      {
         path: '/metodist',
         element: <Metodist/>
       },

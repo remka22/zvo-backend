@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\MetodistController;
 use App\Http\Controllers\Api\DirectorController;
 use App\Http\Controllers\TeacherWorkloadController;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,12 +33,7 @@ Route::get('/twl', function(){
     //return TeacherWorkloadController::teachers_insystem();
 });
 
-Route::get('/student', function(){
-    return StudentController::get();
-});
-Route::get('/metodist', function(){
-    return MetodistController::get();
-});
-Route::get('/director', function(){
-    return DirectorController::get();
+
+Route::get('/test', function(){
+   dd(Role::where('name', 'Мтодист')->get()->first());
 });

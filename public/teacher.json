@@ -1,0 +1,227 @@
+{
+    "data": {
+        "user": {
+            "id": 24,
+            "fio": "Арипова Д.А.",
+            "email": "p23@mail.ru"
+        },
+        "subjects": [
+            {
+                "id": 819,
+                "name": "Иностранный язык",
+                "number_course": 2,
+                "id_teacher_course": null,
+                "short_name": "АТПбз-22-1",
+                "need_task": []
+            },
+            {
+                "id": 842,
+                "name": "Иностранный язык",
+                "number_course": 2,
+                "id_teacher_course": null,
+                "short_name": "КТбз-22-1",
+                "need_task": []
+            },
+            {
+                "id": 863,
+                "name": "Иностранный язык",
+                "number_course": 2,
+                "id_teacher_course": null,
+                "short_name": "КТбз-22-2",
+                "need_task": []
+            },
+            {
+                "id": 1170,
+                "name": "Иностранный язык",
+                "number_course": 1,
+                "id_teacher_course": null,
+                "short_name": "АТПбз-23-1",
+                "need_task": []
+            },
+            {
+                "id": 1197,
+                "name": "Иностранный язык",
+                "number_course": 1,
+                "id_teacher_course": null,
+                "short_name": "ЭЛбз-23-1",
+                "need_task": []
+            },
+            {
+                "id": 1221,
+                "name": "Иностранный язык",
+                "number_course": 1,
+                "id_teacher_course": null,
+                "short_name": "ЭСбз-23-1",
+                "need_task": []
+            },
+            {
+                "id": 1242,
+                "name": "Иностранный язык",
+                "number_course": 2,
+                "id_teacher_course": null,
+                "short_name": "ААбз-22-1",
+                "need_task": []
+            },
+            {
+                "id": 1263,
+                "name": "Иностранный язык",
+                "number_course": 2,
+                "id_teacher_course": null,
+                "short_name": "ЛИМбз-22-1",
+                "need_task": []
+            },
+            {
+                "id": 2062,
+                "name": "Иностранный язык",
+                "number_course": 1,
+                "id_teacher_course": null,
+                "short_name": "ТПбз-23-1",
+                "need_task": []
+            },
+            {
+                "id": 2154,
+                "name": "Иностранный язык",
+                "number_course": 2,
+                "id_teacher_course": null,
+                "short_name": "ТПбз-22-1",
+                "need_task": []
+            },
+            {
+                "id": 423,
+                "name": "Иностранный язык",
+                "number_course": 1,
+                "id_teacher_course": 2513,
+                "short_name": "ХТбз-23-1",
+                "need_task": [
+                    2478
+                ]
+            }
+        ],
+        "courses": [
+            {
+                "id": 2513,
+                "name": "Электронны курс541",
+                "id_link": 65081,
+                "tasks": [
+                    {
+                        "id": 2477,
+                        "name": "Задание 0",
+                        "id_link": 65894,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 2478,
+                        "name": "Задание 1",
+                        "id_link": 75406,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 2479,
+                        "name": "Задание 2",
+                        "id_link": 66201,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 2480,
+                        "name": "Задание 3",
+                        "id_link": 70624,
+                        "type": "assign"
+                    }
+                ]
+            },
+            {
+                "id": 2514,
+                "name": "Электронны курс316",
+                "id_link": 63556,
+                "tasks": [
+                    {
+                        "id": 1424,
+                        "name": "Задание 0",
+                        "id_link": 70711,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 1425,
+                        "name": "Задание 1",
+                        "id_link": 77240,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 1426,
+                        "name": "Задание 2",
+                        "id_link": 72011,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 1427,
+                        "name": "Задание 3",
+                        "id_link": 65319,
+                        "type": "assign"
+                    }
+                ]
+            },
+            {
+                "id": 2515,
+                "name": "Электронны курс1242",
+                "id_link": 64117,
+                "tasks": [
+                    {
+                        "id": 5611,
+                        "name": "Задание 0",
+                        "id_link": 72536,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 5612,
+                        "name": "Задание 1",
+                        "id_link": 71160,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 5613,
+                        "name": "Задание 2",
+                        "id_link": 68117,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 5614,
+                        "name": "Задание 3",
+                        "id_link": 65628,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 5615,
+                        "name": "Задание 4",
+                        "id_link": 76457,
+                        "type": "assign"
+                    }
+                ]
+            },
+            {
+                "id": 2516,
+                "name": "Электронны курс132",
+                "id_link": 64616,
+                "tasks": [
+                    {
+                        "id": 598,
+                        "name": "Задание 0",
+                        "id_link": 66525,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 599,
+                        "name": "Задание 1",
+                        "id_link": 81365,
+                        "type": "assign"
+                    },
+                    {
+                        "id": 600,
+                        "name": "Задание 2",
+                        "id_link": 70863,
+                        "type": "assign"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -7,7 +7,10 @@ use App\Http\Controllers\Api\DirectorController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Requests\LoginRequest;
+use App\Models\Group;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
@@ -27,41 +30,56 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    
-});
 
+
+    Route::get('/director', function (Request $request) {
+        return DirectorController::get($request);
+    });
+    Route::post('/director', function (Request $request) {
+        return DirectorController::post($request);
+    });
+
+
+    Route::get('/metodist', function (Request $request) {
+        return MetodistController::get($request);
+    });
+    Route::post('/metodist', function (Request $request) {
+        return MetodistController::post($request);
+    });
+
+
+    Route::get('/teacher', function (Request $request) {
+        return TeacherController::get($request);
+    });
+    Route::post('/teacher', function (Request $request) {
+        return TeacherController::post($request);
+    });
+
+
+    Route::get('/student', function (Request $request) {
+        return StudentController::get($request);
+    });
+    
+    Route::post('/notif', function (Request $request) {
+        return NotificationController::create($request);
+    });
+
+});
 Route::post('/signup', [LoginController::class, 'signup']);
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::post('/director', function (Request $request){
-    return DirectorController::post($request);
-});
-//Route::apiResource('/users', UserController::class);
-Route::get('/director', function(Request $request){
-    return DirectorController::get($request);
-});
-Route::get('/metodist', function(Request $request){
-    return MetodistController::get($request);
-});
-Route::post('/metodist', function (Request $request){
-    return MetodistController::post($request);
-});
-Route::get('/teacher', function(Request $request){
-    return TeacherController::get($request);
-});
-Route::post('/teacher', function (Request $request){
-    return TeacherController::post($request);
-});
-Route::get('/student', function(){
-    return StudentController::get();
-});
-Route::post('/student', function (Request $request){
-    return response();//TeacherController::post($request);
-});
 
-Route::get('/notif', function(){
-    //return StudentController::get();
-});
-Route::post('/notif', function (Request $request){
-    return NotificationController::create($request);
-});
+
+
+// Route::get('/test', function () {
+//     //return User::where('role_id', 5)->with('getMetodists')->get();
+//     //$data = [];
+//     $data["subjects"] = User::where('id', 609)->with('getStudent')->get();
+//     // $data["groups"] = Group::where('metodist_id', null)->get();
+//     return $data;
+//     // $user = User::find(1)->getMetodistsGroups()->get();
+//     // $user->getSubjects()->get();
+//     // $user->getSubjectTeachers()->get();
+//     // $user->getTeacherAndCourse()->get();
+//     // return (json_encode($user, JSON_UNESCAPED_UNICODE));
+// });

@@ -12,14 +12,15 @@ use App\Models\TeacherCourse;
 use App\Models\MoodleCourse;
 use App\Models\NeedsTask;
 use App\Models\MoodleTask;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
-    public static function get()
+    public static function get($request)
     {
-        $str_group = 'ХТбз-23-1';
-
-        $group = Group::where('short_name', '=', $str_group)->get()->first();
+        $user = $request->user();
+        $student = Student::where('user_id', $user->id)->get()->first();
+        $group = Group::where('id', $student->group_id)->get()->first();
         if ($group->metodist_id != null) {
             $m = User::find($group->metodist_id);
             $metodist_id = $m->id;
@@ -68,8 +69,7 @@ class StudentController extends Controller
         }
         $data = [
             'group' => $arr_group,
-            'user' => [],
-            'subject' => $arr_sabjects
+            'subjects' => $arr_sabjects
         ];
         // json_encode($data, JSON_UNESCAPED_UNICODE)
         //dd($data);

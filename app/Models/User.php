@@ -46,4 +46,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getMetodistsGroups(){
+        return $this->hasMany('App\Models\Group', 'metodist_id', 'id');
+    }
+    public function getMetodists(){
+        return $this->belongsToMany('App\Models\Role', 'id', 'role_id')->where('role_id', 4);
+    }
+    public function getTeacherSubjects(){
+        return $this->hasMany('App\Models\SubjectTeacher', 'teacher_id', 'id');
+    }
+    public function getStudent(){
+        return $this->hasOne('App\Models\Sudent', 'user_id', 'id');
+    }
+
 }
