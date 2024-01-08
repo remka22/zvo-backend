@@ -60,8 +60,14 @@ Route::middleware('auth:sanctum')->group(function () {
         return StudentController::get($request);
     });
     
-    Route::post('/notif', function (Request $request) {
+    Route::get('/notify', function (Request $request) {
+        return NotificationController::get($request);
+    });
+    Route::post('/notify', function (Request $request) {
         return NotificationController::create($request);
+    });
+    Route::put('/notify', function (Request $request) {
+        return NotificationController::update($request);
     });
 
 });
