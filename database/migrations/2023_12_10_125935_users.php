@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('mira_id')->nullable();
             $table->integer('moodle_id')->nullable();
             $table->foreign('role_id')->references('id')->on('roles');
+            $table->rememberToken();
         });
     }
 
