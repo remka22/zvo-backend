@@ -14,4 +14,9 @@ class Group extends Model
     public function getSubjects(){
         return $this->hasMany('App\Models\Subject', 'group_id', 'id');
     }
+
+    // for metodist post
+    public function getSubject($subject_id){
+        return $this->hasOne('App\Models\Subject', 'group_id', 'id')->where('id', $subject_id);
+    }
 }

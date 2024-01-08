@@ -18,6 +18,12 @@ class TeacherController extends Controller
     public static function get($request)
     {
         $teacher = $request->user();
+        if ($teacher->role_id != 3) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
         $s_teachers = SubjectTeacher::where('teacher_id', $teacher->id)->get();
         $arr_subjects = [];
         foreach ($s_teachers as $st) {
@@ -77,11 +83,17 @@ class TeacherController extends Controller
 
     public static function post($request)
     {
-        $id_teacher = $request->input('id');
+        $teacher = $request->user();
+        if ($teacher->role_id != 3) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
         $r_subjects = $request->input('subjects');
 
         foreach ($r_subjects as $value) {
-            $t_subject = SubjectTeacher::find($value['id_subject_teacher']);
+            $t_subject = SubjectTeacher::where([['id', '=', $value['id_subject_teacher']], ['teacher_id', '=', $teacher->id]])->get()->first();
             $t_subject->teacher_course_id = $value['id_teacher_course'];
             $t_subject->save();
 

@@ -20,6 +20,12 @@ class MetodistController extends Controller
     public static function get($request)
     {
         $user = $request->user();
+        if ($user->role_id != 4) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
         // // $user = User::find($request->get('id'));
         // // $id_metodist = $user->id;
         // $id_metodist = $request->get('id');
@@ -107,19 +113,40 @@ class MetodistController extends Controller
         // //return($data);
         // //return(json_encode($data, JSON_UNESCAPED_UNICODE));
         // return $data;
-        return json_encode(User::with('getMetodistsGroups.getSubjects.getSubjectTeachers.getTeacher', 
-                                    'getMetodistsGroups.getSubjects.getSubjectTeachers.getTeacherCourse.getCourse',
-                                    'getMetodistsGroups.getSubjects.getSubjectTeachers.getNeedTask.getTask',
-                                    )->where('id',$user->id)->get(), JSON_UNESCAPED_UNICODE);
+        return json_encode(User::with(
+            'getMetodistsGroups.getSubjects.getSubjectTeachers.getTeacher',
+            'getMetodistsGroups.getSubjects.getSubjectTeachers.getTeacherCourse.getCourse',
+            'getMetodistsGroups.getSubjects.getSubjectTeachers.getNeedTask.getTask',
+        )->where('id', $user->id)->get(), JSON_UNESCAPED_UNICODE);
     }
 
     public static function post($request)
     {
+        $user = $request->user();
+        if ($user->role_id != 4) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
+
         $subjects = $request->input('subjects');
+
         foreach ($subjects as $value) {
-            $subject = Subject::find($value['id_subject']);
-            $subject->subject_teacher_id = $value['id_maby_courese'];
-            $subject->save();
+            $check = $user->join('groups', 'users.id', '=', 'metodist_id')
+                ->join('subject', 'groups.id', '=', 'group_id')
+                ->join('subject_teacher', 'subject.id', '=', 'subject_id')
+                ->where([
+                    ['groups.id', $value['group_id']],
+                    ['subject.id', $value['subject_id']],
+                    ['subject_teacher.id', $value['subject_teacher_id']],
+                ])->get()->first();
+            // return $check;
+            if ($check->count() != 0) {
+                $subject = Subject::find($check->subject_id);
+                $subject->subject_teacher_id = $check->subject_teacher_id;
+                $subject->save();
+            }
         }
         return response([
             'response' => "course added to subject"

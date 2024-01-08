@@ -41,7 +41,7 @@ class LoginController extends Controller
 
         $accessToken = $user->createToken('access_token', [TokenAbility::ACCESS_API->value]);
         //$accessToken = $user->createToken('main');
-        $refreshToken = '';//$user->createToken('refresh_token', [TokenAbility::ISSUE_ACCESS_TOKEN->value], config('sanctum.rt_expiration'))->accessToken;
+        //$refreshToken = '';//$user->createToken('refresh_token', [TokenAbility::ISSUE_ACCESS_TOKEN->value], config('sanctum.rt_expiration'))->accessToken;
 
         // $teachers = DB::connection('pgsql2')->select('
         //                                                 select * from GetCoursOfTeacher(3)
@@ -51,8 +51,8 @@ class LoginController extends Controller
         return response([
             'user' => $user,
             'token' => $accessToken->plainTextToken,
-            'token_access_info' => $accessToken->accessToken,
-            'refresh_token' => $refreshToken,
+            // 'token_access_info' => $accessToken->accessToken,
+            // 'refresh_token' => $refreshToken,
         ], 200);
     }
 

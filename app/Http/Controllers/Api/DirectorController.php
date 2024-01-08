@@ -15,15 +15,13 @@ class DirectorController extends Controller
 {
     public static function get($request)
     {
-        // // $user = $request->user();
-        // // $director = User::find($user->id);
-        // $director = User::find($request->input('id'));
-        // if ($director->role_id != 5) {
-        //     return response(
-        //         ['massage' => 'ограничены права доступа'],
-        //         500
-        //     );
-        // }
+        $user = $request->user();
+        if ($user->role_id != 5) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
         // $metodists = User::where('role_id', 4)->get();
         // $arr_metodists = [];
         // foreach ($metodists as $met) {
@@ -92,6 +90,13 @@ class DirectorController extends Controller
 
     public static function post($request)
     {
+        $user = $request->user();
+        if ($user->role_id != 5) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
         $data = $request->input('metodists');
         foreach ($data as $value) {
             foreach ($value['add'] as $va) {

@@ -60,4 +60,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Sudent', 'user_id', 'id');
     }
 
+    // for metodist post
+    public function getMetodistGroup($group_id){
+        return $this->hasOne('App\Models\Group', 'metodist_id', 'id')->where('id', $group_id);
+    }
+
 }

@@ -19,6 +19,12 @@ class StudentController extends Controller
     public static function get($request)
     {
         $user = $request->user();
+        if ($user->role_id != 2) {
+            return response(
+                ['massage' => 'ограничены права доступа'],
+                500
+            );
+        }
         $student = Student::where('user_id', $user->id)->get()->first();
         $group = Group::where('id', $student->group_id)->get()->first();
         if ($group->metodist_id != null) {
