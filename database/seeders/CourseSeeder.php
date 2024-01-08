@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Moodle_course;
+use App\Models\MoodleCourse;
 use App\Models\TeacherCourse;
 
 class CourseSeeder extends Seeder
@@ -16,7 +16,7 @@ class CourseSeeder extends Seeder
     public function run(): void
     {
         for ($i=0; $i < 1801; $i++) { 
-            $m_course = new Moodle_course;
+            $m_course = new MoodleCourse;
             $m_course->link_id = rand(63244, 65324);
             $m_course->name = "Электронны курс$i";
             $m_course->save();
