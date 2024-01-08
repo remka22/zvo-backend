@@ -16,6 +16,7 @@ class TeacherWorkloadController extends Controller
 {
 
     public static function input_teacher_workload(){
+        TeacherWorkloadController::teachers_inmoodle();
         TeacherWorkloadController::teachers_insystem();
         TeacherWorkloadController::input();
     }
