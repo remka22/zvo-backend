@@ -8,11 +8,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SignupRequest;
-use Illuminate\Support\Facades\DB;
+
 
 class LoginController extends Controller
 {
-
     public function signup(SignupRequest $request)
     {
         $data = $request->validated();
@@ -39,7 +38,11 @@ class LoginController extends Controller
 
         /** @var \App\Models\User $user */
         $user = Auth::user();
-        $token = $user->createToken('main')->plainTextToken;
+
+        $accessToken = $user->createToken('access_token', [TokenAbility::ACCESS_API->value]);
+        //$accessToken = $user->createToken('main');
+        $refreshToken = '';//$user->createToken('refresh_token', [TokenAbility::ISSUE_ACCESS_TOKEN->value], config('sanctum.rt_expiration'))->accessToken;
+
         // $teachers = DB::connection('pgsql2')->select('
         //                                                 select * from GetCoursOfTeacher(3)
         //                                             ');
@@ -47,7 +50,9 @@ class LoginController extends Controller
 
         return response([
             'user' => $user,
-            'token' => $token
+            'token' => $accessToken->plainTextToken,
+            'token_access_info' => $accessToken->accessToken,
+            'refresh_token' => $refreshToken,
         ], 200);
     }
 
@@ -57,8 +62,7 @@ class LoginController extends Controller
             'message' => $request
         ], 204);
         /** @var \App\Models\User $user */
-        $user = $request->user();
-        $user->currentAccessToken()->delete();
+        $user = $request->user()->currentAccessToken()->delete();
         return response([
             'message' => 'Good bay'
         ], 204);

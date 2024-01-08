@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\Auth\TokenAbility;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\MetodistController;
 use App\Http\Controllers\Api\DirectorController;
@@ -27,6 +28,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout']);
+    Route::post('/refresh-token', function (Request $request) {
+        $accessToken = $request->user()->createToken('access_token', [TokenAbility::ACCESS_API->value], config('sanctum.expiration'));
+    
+        return ['token' => $accessToken->plainTextToken];
+    })->middleware([
+        'ability:'.TokenAbility::ISSUE_ACCESS_TOKEN->value,
+    ]);
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
