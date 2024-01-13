@@ -8,7 +8,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SignupRequest;
-
+use App\Models\Campus;
+use App\Models\Group;
+use App\Models\Moodle\MdlUser;
+use App\Models\Student;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -26,27 +30,77 @@ class LoginController extends Controller
         $token = $user->createToken('main')->plainTextToken;
         return response(compact('user', 'token'));
     }
-
-    public function login(LoginRequest $request)
+    // public function login(LoginRequest $request)
+    public static function login(Request $request)
     {
-        $credentials = $request->validated();
-        if (!Auth::attempt($credentials, true)) {
+        if (User::where('email', $request->email)->get()->count() != 0) {
+            if (!Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
+                return response([
+                    'message' => 'Provided email or password is incorrect'
+                ], 422);
+            }
+        } else {
+            $campus_user = Campus::where('login', $request->email)->get();
+            if ($campus_user->count() == 0) {
+                return response([
+                    'message' => 'Undefind user'
+                ], 422);
+            } else if ($campus_user->count() == 1) {
+                $campus_user = $campus_user->first();
+                $login = $campus_user->login;
+
+                $moodle_user = MdlUser::where('email', $login)->get();
+                if ($moodle_user->count() == 1) {
+                    $moodle_user = $moodle_user->first();
+                } else {
+                    $moodle_user = [];
+                }
+
+                $user = new User();
+                $l = $campus_user->last_name;
+                $f = $campus_user->first_name;
+                if ($campus_user->cohort == 'Преподаватель') {
+                    //todo
+                } else {
+                    $user->fio = "$f $l";
+                    $user->email = $campus_user->nomz;
+                    $user->moodle_id = $moodle_user->id ?? null;
+                    $user->role_id = 2;
+                    $user->mira_id = $campus_user->miraid;
+                    $user->password = bcrypt('tasar232');
+                    $user->save();
+
+                    $group = Group::where('short_name', $campus_user->cohort)->get();
+                    if ($group->count() == 1) {
+                        $group = $group->first();
+                        $student = new Student();
+                        $student->user_id = $user->id;
+                        $student->group_id = $group->id;
+                        $student->nomz = $campus_user->nomz;
+                        $student->save();
+                    } else {
+                        return response([
+                            'message' => 'Group student error, report administrator'
+                        ], 422);
+                    }
+                }
+            } else {
+                return response([
+                    'message' => 'Multiuser error, report administrator'
+                ], 422);
+            }
+        }
+
+        //$credentials = $request->validated();
+        // if (!Auth::attempt($credentials, true)) {
+        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
             return response([
                 'message' => 'Provided email or password is incorrect'
             ], 422);
         }
-
         /** @var \App\Models\User $user */
         $user = Auth::user();
-
         $accessToken = $user->createToken('access_token', [TokenAbility::ACCESS_API->value]);
-        //$accessToken = $user->createToken('main');
-        //$refreshToken = '';//$user->createToken('refresh_token', [TokenAbility::ISSUE_ACCESS_TOKEN->value], config('sanctum.rt_expiration'))->accessToken;
-
-        // $teachers = DB::connection('pgsql2')->select('
-        //                                                 select * from GetCoursOfTeacher(3)
-        //                                             ');
-        //return response(compact('user', 'token'));
 
         return response([
             'user' => $user,

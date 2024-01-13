@@ -20,7 +20,7 @@ class SubjectTeacher extends Model
     function getNeedTask(){
         return $this->hasMany('App\Models\NeedsTask', 'subject_id', 'id');
     }
-    function getSubject(){
-        return $this->hasOne('App\Models\Subject', 'id', 'subject_id');
+    function getSubject($number){
+        return $this->hasOne('App\Models\Subject', 'id', 'subject_id')->where('number_course', $number);
     }
 }

@@ -11,6 +11,7 @@
                 "name": "Иностранный язык",
                 "number_course": 2,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "АТПбз-22-1",
                 "need_task": []
             },
@@ -19,6 +20,7 @@
                 "name": "Иностранный язык",
                 "number_course": 2,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "КТбз-22-1",
                 "need_task": []
             },
@@ -27,6 +29,7 @@
                 "name": "Иностранный язык",
                 "number_course": 2,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "КТбз-22-2",
                 "need_task": []
             },
@@ -35,6 +38,7 @@
                 "name": "Иностранный язык",
                 "number_course": 1,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "АТПбз-23-1",
                 "need_task": []
             },
@@ -43,6 +47,7 @@
                 "name": "Иностранный язык",
                 "number_course": 1,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "ЭЛбз-23-1",
                 "need_task": []
             },
@@ -51,6 +56,7 @@
                 "name": "Иностранный язык",
                 "number_course": 1,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "ЭСбз-23-1",
                 "need_task": []
             },
@@ -59,6 +65,7 @@
                 "name": "Иностранный язык",
                 "number_course": 2,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "ААбз-22-1",
                 "need_task": []
             },
@@ -67,6 +74,7 @@
                 "name": "Иностранный язык",
                 "number_course": 2,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "ЛИМбз-22-1",
                 "need_task": []
             },
@@ -75,6 +83,7 @@
                 "name": "Иностранный язык",
                 "number_course": 1,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "ТПбз-23-1",
                 "need_task": []
             },
@@ -83,6 +92,7 @@
                 "name": "Иностранный язык",
                 "number_course": 2,
                 "id_teacher_course": null,
+                "course_name": null,
                 "short_name": "ТПбз-22-1",
                 "need_task": []
             },
@@ -91,9 +101,14 @@
                 "name": "Иностранный язык",
                 "number_course": 1,
                 "id_teacher_course": 2513,
+                "course_name": "Электронны курс541",
                 "short_name": "ХТбз-23-1",
                 "need_task": [
-                    2478
+                    {
+                        "id": 2478,
+                        "name": "Задание 1",
+                        "type": "assign"
+                    }
                 ]
             }
         ],

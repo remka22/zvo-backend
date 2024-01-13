@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     public function run(): void
     {
         $role = [
-            [1, 'Админ', 'admin@mail.ru', 'tasar232!'],
+            [1, 'Админ', 'admin', 'tasar232'],
         ];
         // [2, 'Студент', 'student@mail.ru', 'tasar232!'], 
         // [3, 'Преподаватель', 'teacher@mail.ru', 'tasar232!'],

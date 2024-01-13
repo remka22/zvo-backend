@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\Campus;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -12,17 +14,24 @@ class DirectorSeeder extends Seeder
      */
     public function run(): void
     {
-        $role = [
-            [5, 'Директор', 'director@mail.ru', 'tasar232!']
-        ];
-        foreach($role as $r){
-            User::create([
-                'role_id' => $r[0],
-                'fio' => $r[1],
-                'email' => $r[2],
-                'password' => bcrypt($r[3]),
-                'mira_id' => $r[0]
-            ]);
-        } 
+        $director = Campus::create([
+            'miraid' => null,
+            'last_name' => 'директора',
+            'first_name' => 'Фио',
+            'nomz' => 'd1',
+            'cohort'  => 'Преподаватель',
+            'subfaculty' => 'ЗВО',
+            'faculty' => 'ЗВО',
+            'login' => 'd1',
+        ]);
+        $l = $director->last_name;
+        $f = $director->first_name;
+        User::create([
+            'role_id' => 5,
+            'fio' => "$f $l",
+            'email' => $director->login,
+            'password' => bcrypt('tasar232'),
+            'mira_id' => null
+        ]);
     }
 }

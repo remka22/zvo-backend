@@ -37,15 +37,24 @@ class StudentController extends Controller
             $metodist_fio = null;
             $metodist_email = null;
         }
+        $number_course = date("Y") - $group->year;
+        if (date("m") > 9) {
+            $number_course++;
+        }
+        $number_course -= 2000;
         $arr_group = [
             'name' => $group->id,
             'metodist_id' => $metodist_id,
             'metodist_fio' => $metodist_fio,
             'metodist_email' => $metodist_email,
             'year' => $group->year,
+            'course' => $number_course,
             'number' => $group->number
         ];
-        $subjects = Subject::where('group_id', $group->id)->get();
+        $subjects = Subject::where([['group_id', '=', $group->id],['number_course', '=', $number_course]])->get();
+        
+
+
         $arr_sabjects = [];
         foreach ($subjects as $sub) {
             if ($sub->subject_teacher_id != null) {

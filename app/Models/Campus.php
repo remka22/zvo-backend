@@ -5,13 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NeedsTask extends Model
+class Campus extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = "needs_task";
-
-    function getTask(){
-        return $this->hasOne('App\Models\MoodleTask', 'id', 'task_id');
-    }
+    protected $table = "campus";
 }
