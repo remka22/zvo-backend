@@ -62,6 +62,7 @@ class TeacherController extends Controller
                     'id_teacher_course' => $st->teacher_course_id,
                     'course_name' => $t_course_name,
                     'short_name' => $group->short_name,
+                    'comment' => $st->comment,
                     'need_task' => $arr_need_task
                 ];
             }

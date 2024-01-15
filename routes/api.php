@@ -41,6 +41,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/director', function (Request $request) {
         return DirectorController::post($request);
     });
+    Route::post('/workload', function (Request $request) {
+        return TeacherWorkloadController::input_teacher_workload($request);
+    });
 
 
     Route::get('/metodist', function (Request $request) {
@@ -75,15 +78,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/notify', function (Request $request) {
         return NotificationController::update($request);
     });
-    Route::post('/workload', function (Request $request) {
-        return TeacherWorkloadController::input_teacher_workload($request);
-    });
 
 
     Route::post('/admin/director', function (Request $request) {
         return AdminController::add_director($request);
     });
-    Route::post('//admin/metodist', function (Request $request) {
+    Route::post('/admin/metodist', function (Request $request) {
         return AdminController::add_metodist($request);
     });
 

@@ -245,13 +245,13 @@ class TeacherWorkloadController extends Controller
             $subaculty = $t[1];
             $cohort = "Преподаватель";
             $teacher_campus = Campus::where([['first_name', '=', $first_name], ['last_name', '=', $last_name]])->get();
-            if (count($teacher_campus) > 1) {
+            if ($teacher_campus->count() > 1) {
                 //check the subfuculty
-            } else if (count($teacher_campus) == 0) {
+            } else if ($teacher_campus->count() == 0) {
                 $moodle_teacher = MdlUser::where([['lastname', '=', $last_name], ['firstname', '=', $first_name]])->get();
-                if (count($moodle_teacher) > 1) {
+                if ($moodle_teacher->count() > 1) {
                     //check the subfuculty in a moodle
-                } else if (count($moodle_teacher) == 1) {
+                } else if ($moodle_teacher->count() == 1) {
                     $m_teacher = $moodle_teacher->first();
                     $campus = new Campus();
                     $campus->miraid = null;
@@ -264,8 +264,18 @@ class TeacherWorkloadController extends Controller
                     $campus->login = $m_teacher->username;
                     $campus->save();
                 } else {
-                    //dont undestend what we will do
+                    // $campus = new Campus();
+                    // $campus->miraid = null;
+                    // $campus->last_name = $last_name;
+                    // $campus->first_name = $first_name;
+                    // $campus->nomz = 'UNDEFIND';
+                    // $campus->cohort  = 'Преподаватель';
+                    // $campus->subfaculty = $subaculty;
+                    // $campus->faculty = null;
+                    // $campus->login = $m_teacher->username;
+                    // $campus->save();
                 }
+            } else if ($teacher_campus->count() == 1) {
             }
             //dd(1);
         }
@@ -302,7 +312,7 @@ class TeacherWorkloadController extends Controller
                         $user->email = $moodle_teacher->username;
                         $user->moodle_id = $moodle_teacher->id;
                         $user->password = $moodle_teacher->password; //needs a generation
-                    } else {
+                    } else if ($moodle_teacher->count() == 0) {
                         $user->fio = $t[0] + 'not_found in_moodle_and_in_campus';
                         $user->email = 'NotFound inMoodle';
                         $user->moodle_id = null;
