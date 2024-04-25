@@ -40,7 +40,7 @@ class TeacherController extends Controller
             if (date("Y") == ($year + 2000)) {
 
                 $arr_need_task = [];
-                $t_course_name = null;
+                $t_course = null;
                 if ($st->teacher_course_id != null) {
                     $n_task = NeedsTask::where('subject_id', $st->id)->get();
                     foreach ($n_task as $nt) {
@@ -52,7 +52,7 @@ class TeacherController extends Controller
                         ];
                     }
                     $m_course_id = TeacherCourse::find($st->teacher_course_id)->course_id;
-                    $t_course_name = MoodleCourse::find($m_course_id)->name;
+                    $t_course = MoodleCourse::find($m_course_id);
                 }
 
                 $arr_subjects[] = [
@@ -60,7 +60,8 @@ class TeacherController extends Controller
                     'name' => $subject->name,
                     'number_course' => $subject->number_course,
                     'id_teacher_course' => $st->teacher_course_id,
-                    'course_name' => $t_course_name,
+                    'course_name' => $t_course->name ?? null,
+                    'id_link' => $t_course->link_id ?? null,
                     'short_name' => $group->short_name,
                     'comment' => $st->comment,
                     'need_task' => $arr_need_task
@@ -105,6 +106,9 @@ class TeacherController extends Controller
 
     public static function post($request)
     {
+        // return response([
+        //     'otvet' => $request->input('data')
+        // ], 200);
         $teacher = $request->user();
         if ($teacher->role_id != 3) {
             return response(
@@ -112,32 +116,89 @@ class TeacherController extends Controller
                 500
             );
         }
-        $r_subjects = $request->input('subjects');
+        $data = $request->input('data');
 
-        foreach ($r_subjects as $value) {
-            $t_subject = SubjectTeacher::where([['id', '=', $value['id_subject_teacher']], ['teacher_id', '=', $teacher->id]])->get()->first();
-            $t_subject->teacher_course_id = $value['id_teacher_course'];
-            $t_subject->save();
+        // foreach ($r_subjects as $value) {
+        if ($t_subject = SubjectTeacher::where([['id', '=', $data['subject']['id']], ['teacher_id', '=', $teacher->id]])->get()->first()) {
+            if ($t_course = TeacherCourse::where([['id', '=', $data['course']['id']], ['user_id', '=', $teacher->id]])->get()->first()) {
+                if ($m_course = MoodleCourse::find($t_course->course_id)) {
+                    $nt_id_req = [];
+                    foreach ($data['tasks'] as $task) {
+                        $nt_id_req[] = $task['id'];
+                    }
+                    if ($m_tasks = MoodleTask::where('course_id', $m_course->id)->whereIn('id', $nt_id_req)->get()) {
+                        $nt_id_m = [];
+                        foreach ($m_tasks as $task) {
+                            $nt_id_m[] = $task->id;
+                        }
+                        NeedsTask::where('subject_id', $t_subject->id)->whereNotIn('task_id', $nt_id_m)->delete();
+                        $n_tasks = NeedsTask::where('subject_id', $t_subject->id)->get();
+                        $nt_id_n = [];
+                        foreach ($n_tasks as $task) {
+                            $nt_id_n[] = $task->task_id;
+                        }
+                        if ($n_tasks->count() < $m_tasks->count()) {
+                            $nt_id_add = array_diff($nt_id_m, $nt_id_n);
+                            foreach ($nt_id_add as $task) {
+                                $nt = new NeedsTask();
+                                $nt->subject_id = $t_subject->id;
+                                $nt->task_id = $task;
+                                $nt->save();
+                            }
+                        }
+                        $t_subject->teacher_course_id = $t_course->id;
+                        $t_subject->comment = $data['comment'];
+                        $t_subject->save();
+                    } else {
+                        return response([
+                            'response' => 'Задания не найдены, попробуйте позже'
+                        ], 500);
+                    }
+                } else {
+                    return response([
+                        'response' => 'Курс не найден, попробуйте позже'
+                    ], 500);
+                }
+            } else {
+                return response([
+                    'response' => 'Предмент не найден, попробуйте позже'
+                ], 500);
+            }
 
-            foreach ($value['need_task']['add'] as $task) {
-                if (NeedsTask::where('task_id', $task)->get()->count() == 0) {
-                    $n_task = new NeedsTask;
-                    $n_task->subject_id = $t_subject->id;
-                    $n_task->task_id = $task;
-                    $n_task->save();
-                }
-            }
-            foreach ($value['need_task']['delete'] as $task) {
-                $n_task = NeedsTask::where('task_id', $task);
-                if ($n_task->get() != null) {
-                    $n_task->delete();
-                }
-            }
+
+
+
+            // $t_subject->teacher_course_id = $t_course->id;
+            // $t_subject->save();
+
+            // $nt_id = [];
+            // foreach ($data['tasks'] as $task) {
+            //     $nt_id +=  $task['id'];
+            // }
+            // $m_tasks = MoodleTask::where('coure_id', $m_course->id)->whereIn('id', $nt_id);
+            // return response([
+            //         'otvet' => $m_tasks
+            //     ], 200);
+
+
+            // if (NeedsTask::where('task_id', $task)->get()->count() == 0) {
+            //     $n_task = new NeedsTask;
+            //     $n_task->subject_id = $t_subject->id;
+            //     $n_task->task_id = $task;
+            //     $n_task->save();
+            // }
+            // }
+            // foreach ($value['need_task']['delete'] as $task) {
+            //     $n_task = NeedsTask::where('task_id', $task);
+            //     if ($n_task->get() != null) {
+            //         $n_task->delete();
+            //     }
+            // }
         }
 
 
         return response([
-            'response' => "task added to subject"
+            'response' => "Изменения успешно сохранены"
         ], 200);
     }
 

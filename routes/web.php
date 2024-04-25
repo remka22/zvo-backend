@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    //return redirect('/login');
+    return "hell world";
 });
 
 Route::get('/login', function () {

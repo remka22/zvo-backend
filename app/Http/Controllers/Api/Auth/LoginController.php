@@ -99,8 +99,9 @@ class LoginController extends Controller
             ], 422);
         }
         /** @var \App\Models\User $user */
-        $user = Auth::user();
-        $accessToken = $user->createToken('access_token', [TokenAbility::ACCESS_API->value]);
+        $user = User::where('id', Auth::user()->id)->with('role')->get()->first();
+
+        $accessToken = Auth::user()->createToken('access_token', [TokenAbility::ACCESS_API->value]);
 
         return response([
             'user' => $user,

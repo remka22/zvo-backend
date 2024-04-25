@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/user', function (Request $request) {
-        return $request->user();
+        return User::where('id', $request->user()->id)->with('role')->get()->first();
     });
 
 
@@ -40,6 +40,9 @@ Route::middleware('auth:sanctum')->group(function () {
     });
     Route::post('/director', function (Request $request) {
         return DirectorController::post($request);
+    });
+    Route::get('/director/metodist', function (Request $request) {
+        return MetodistController::get_metodist_groups($request);
     });
     Route::post('/workload', function (Request $request) {
         return TeacherWorkloadController::input_teacher_workload($request);

@@ -20,104 +20,26 @@ class MetodistController extends Controller
     public static function get($request)
     {
         $user = $request->user();
-        if ($user->role_id != 4) {
+        if ($user->role_id != 4) { 
             return response(
                 ['massage' => 'ограничены права доступа'],
                 500
-            );
+            ); 
         }
-        // $user = User::find($request->get('id'));
-        // $id_metodist = $user->id;
-        //$id_metodist = $request->get('id');
-        //$metodist = User::find($id_metodist);
-        $groups = Group::where('metodist_id', $user->id)->get();
-        $arr_groups = [];
-        foreach ($groups as $g) {
-            $subjects = Subject::where('group_id', $g->id)->get();
-            $arr_subjects = [];
-            foreach ($subjects as $s) {
-                $subject_teacher = SubjectTeacher::where('subject_id', $s->id)->get();
-                $arr_maby_subject = [];
-                foreach ($subject_teacher as $st) {
-                    $teacher = User::find($st->teacher_id);
-                    $arr_course = [];
-                    $arr_need_task = [];
-                    if ($st->teacher_course_id != null) {
-                        $t_course = TeacherCourse::find($st->teacher_course_id);
-                        $course = MoodleCourse::find($t_course->course_id);
-                        $arr_course[] = [
-                            'id' => $course->id,
-                            'name' => $course->name,
-                            'id_link' => $course->link_id,
-                        ];
-                        $task = NeedsTask::where('subject_id', $st->id)->get();
-                        foreach ($task as $t) {
-                            $m_task = MoodleTask::find($t->task_id);
-                            $arr_need_task[] = [
-                                'id' => $t->id,
-                                'name' => $m_task->name,
-                                'id_link' => $m_task->link_id,
-                                'type' => $m_task->type
-                            ];
-                        }
-                    }
-                    $arr_maby_subject[] = [
-                        'id' => $st->id,
-                        'teacher_id' => $teacher->id,
-                        'teacher_fio' => $teacher->fio,
-                        'id_teacher_course' => $st->teacher_course_id,
-                        'comment' => $st->comment,
-                        'course' => $arr_course,
-                        'need_task' => $arr_need_task
-                    ];
-                }
-                $arr_subjects[] = [
-                    'id' => $s->id,
-                    'name' => $s->name,
-                    'id_teacher_subject' => $s->subject_teacher_id,
-                    'maby_subject' => $arr_maby_subject
-                ];
-            }
-            $arr_groups[] = [
-                'id' => $g->id,
-                'short_name' => $g->short_name,
-                'year' => $g->year,
-                'number' => $g->number,
-                'subjects' => $arr_subjects
-            ];
-        }
-        $notif = Notification::where([['user_rec_id', '=', $user->id], ['is_read', '=', false]])->get();
-        $arr_notif = [];
-        foreach ($notif as $n) {
-            $user_send = User::find($n->user_send_id);
-            $arr_notif[] = [
-                'id' => $n->id,
-                'user_send_id' => $user_send->id,
-                'user_rec_fio' => $user_send->fio,
-                'content' => $n->content,
-                'send_date' => $n->send_date,
-                'is_read' => $n->is_read
-            ];
-        }
-        $data = array('data' => array(
-            'user' => array(
-                'id_role' => $user->role_id,
-                'id' => $user->id,
-                'fio' => $user->fio,
-                'email' => $user->email,
-            ),
-            'groups' => $arr_groups,
-            'norif' => $arr_notif
-        ));
-
-        //return($data);
+        return get_groups($user->id); 
+        // return get_groups($user->id);
         //return(json_encode($data, JSON_UNESCAPED_UNICODE));
-        return $data;
+        // return $data;
         // return json_encode(User::with(
         //     'getMetodistsGroups.getSubjects.getSubjectTeachers.getTeacher',
         //     'getMetodistsGroups.getSubjects.getSubjectTeachers.getTeacherCourse.getCourse',
         //     'getMetodistsGroups.getSubjects.getSubjectTeachers.getNeedTask.getTask',
         // )->where('id', $user->id)->get(), JSON_UNESCAPED_UNICODE);
+    }
+
+    public static function get_metodist_groups($request){
+        $user_id = $request->get('metodist');
+        return get_groups($user_id);
     }
 
     public static function post($request)
@@ -156,4 +78,65 @@ class MetodistController extends Controller
             'response' => "course added to subject"
         ], 200);
     }
+}
+
+
+function get_groups($user_id){
+    $groups = Group::where('metodist_id', $user_id)->get();
+    $arr_groups = [];
+    foreach ($groups as $g) {
+        $subjects = Subject::where('group_id', $g->id)->get();
+        $arr_subjects = [];
+        foreach ($subjects as $s) {
+            $subject_teacher = SubjectTeacher::where('subject_id', $s->id)->get();
+            $arr_maby_subject = [];
+            foreach ($subject_teacher as $st) {
+                $teacher = User::find($st->teacher_id);
+                $arr_course = [];
+                $arr_need_task = [];
+                if ($st->teacher_course_id != null) {
+                    $t_course = TeacherCourse::find($st->teacher_course_id);
+                    $course = MoodleCourse::find($t_course->course_id);
+                    $arr_course = [
+                        'id' => $course->id,
+                        'name' => $course->name,
+                        'id_link' => $course->link_id,
+                    ];
+                    $task = NeedsTask::where('subject_id', $st->id)->get();
+                    foreach ($task as $t) {
+                        $m_task = MoodleTask::find($t->task_id);
+                        $arr_need_task[] = [
+                            'id' => $t->id,
+                            'name' => $m_task->name,
+                            'id_link' => $m_task->link_id,
+                            'type' => $m_task->type
+                        ];
+                    }
+                }
+                $arr_maby_subject[] = [
+                    'id' => $st->id,
+                    'teacher_id' => $teacher->id,
+                    'teacher_fio' => $teacher->fio,
+                    'id_teacher_course' => $st->teacher_course_id,
+                    'comment' => $st->comment,
+                    'course' => $arr_course,
+                    'need_task' => $arr_need_task
+                ];
+            }
+            $arr_subjects[] = [
+                'id' => $s->id,
+                'name' => $s->name,
+                'id_teacher_subject' => $s->subject_teacher_id,
+                'maby_subject' => $arr_maby_subject
+            ];
+        }
+        $arr_groups[] = [
+            'id' => $g->id,
+            'short_name' => $g->short_name,
+            'year' => $g->year,
+            'number' => $g->number,
+            'subjects' => $arr_subjects
+        ];
+    }
+    return $arr_groups;
 }

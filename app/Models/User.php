@@ -46,8 +46,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function role()
+    {
+        return $this->hasOne(Role::class, 'id', 'role_id');
+    }
 
-    public function getMetodistsGroups(){
+    public function groups(){
         return $this->hasMany('App\Models\Group', 'metodist_id', 'id');
     }
     public function getMetodists(){

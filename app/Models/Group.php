@@ -11,7 +11,7 @@ class Group extends Model
     public $timestamps = false;
     protected $table = "groups";
 
-    public function getSubjects(){
+    public function subjects(){
         return $this->hasMany('App\Models\Subject', 'group_id', 'id');
     }
 

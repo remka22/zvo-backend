@@ -60,6 +60,7 @@ class StudentController extends Controller
             if ($sub->subject_teacher_id != null) {
                 $t_subject = SubjectTeacher::find($sub->subject_teacher_id);
                 $t_course = TeacherCourse::find($t_subject->teacher_course_id);
+                $teacher = User::find($t_course->user_id);
                 $course = MoodleCourse::find($t_course->course_id);
                 $need_task = NeedsTask::where('subject_id', $t_subject->id)->get();
                 $arr_need_task = [];
@@ -72,14 +73,16 @@ class StudentController extends Controller
                     ];
                 }
                 $arr_sabjects[] = [
+                    'id' => $sub->id,
                     'name' => $sub->name,
                     'number_course' => $sub->number_course,
                     'name_course' => $course->name,
                     'id_link' => $course->link_id,
-                    'need_task' => $arr_need_task
+                    'need_task' => $arr_need_task,
+                    'teacher_fio' => $teacher->fio,
                 ];
             } else {
-                $arr_sabjects[] = ['name' => $sub->name, 'number_course' => $sub->number_course];
+                $arr_sabjects[] = ['id' => $sub->id, 'name' => $sub->name, 'number_course' => $sub->number_course];
             }
         }
         $data = [

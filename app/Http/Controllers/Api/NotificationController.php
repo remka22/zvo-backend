@@ -41,14 +41,18 @@ class NotificationController extends Controller
     public static function get($request)
     {
         $user = $request->user();
-        $notif = Notification::where([['user_rec_id', '=', $user->id], ['is_read', '=', false]])->orderBy('send_date')->get();
+        if ($request->get('top')){
+            $notif = Notification::where([['user_rec_id', '=', $user->id], ['is_read', '=', false]])->orderBy('send_date')->get();
+        }else{
+            $notif = Notification::where([['user_rec_id', '=', $user->id]])->orderBy('send_date')->get();
+        }
         $arr_notif = [];
         foreach ($notif as $n) {
             $user_send = User::find($n->user_send_id);
             $arr_notif[] = [
                 'id' => $n->id,
                 'user_send_id' => $user_send->id,
-                'user_rec_fio' => $user_send->fio,
+                'user_send_fio' => $user_send->fio,
                 'content' => $n->content,
                 'send_date' => $n->send_date,
                 'is_read' => $n->is_read

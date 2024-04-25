@@ -82,7 +82,7 @@ class DirectorController extends Controller
         $role = Role::where('name', 'Методист')->get()->first();
         $data = [];
         if ($role != null) {
-            $data["metodists"] = User::where('role_id', $role->id)->with('getMetodistsGroups')->get();
+            $data["metodists"] = User::where('role_id', $role->id)->get();
             $data["groups"] = Group::where('metodist_id', null)->get();
         }
         return $data;
