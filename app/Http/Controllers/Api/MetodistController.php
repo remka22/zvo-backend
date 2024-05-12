@@ -88,7 +88,7 @@ class MetodistController extends Controller
                 $arr_students[] = [
                     'id' => $student->id,
                     'fio' => $student->fio,
-                    'isLogined' => $student->islogined,
+                    'isLogined' => $student->isLogined,
                 ];
             }
             $arr_groups[] = [
