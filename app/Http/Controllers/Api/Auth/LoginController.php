@@ -318,13 +318,13 @@ function auth($return)
             }
         }
         $user->email = $return['email'];
-        $user->password = bcrypt('AzSxDc132!');
+        $user->password = bcrypt('tasar232');
         $user->mira_id = $return['mira_id'][0];
         $user->islogined = true;
         $user->save();
     }
 
-    if (!Auth::attempt(['email' => $return['email'], 'password' => 'AzSxDc132!'])) {
+    if (!Auth::attempt(['email' => $return['email'], 'password' => 'tasar232'])) {
         return response([
             'message' => 'Чтото пошло не так, обратитесь к администратору'
         ], 422);
