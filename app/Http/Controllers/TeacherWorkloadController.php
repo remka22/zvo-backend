@@ -42,6 +42,7 @@ class TeacherWorkloadController extends Controller
     public static function input_teacher_workload($request)
     {
         $file = $request->file('file');
+        // dd($file);
         $path = Storage::putFileAs('workload', $file, 'workload.xlsx');
         $path = "../storage/app/" . $path;
 
@@ -60,7 +61,7 @@ class TeacherWorkloadController extends Controller
 
         // TeacherWorkloadController::teachers_inmoodle($data);
         // TeacherWorkloadController::teachers_incampus($data);
-        TeacherWorkloadController::teachers_insystem_v2($data);
+        // TeacherWorkloadController::teachers_insystem_v2($data);
         TeacherWorkloadController::input($data);
         response('Нагрузка загружена');
     }
@@ -71,12 +72,14 @@ class TeacherWorkloadController extends Controller
         $groups = [];
         foreach ($data as $d) {
             //if((count(explode(',', $d[2])) > 6) && (count($groups) == 0))
-            $groups[] = $d[2];
+            if (intval($d[1]) <= 4 || $d[1] == 'Семестр')
+                $groups[] = $d[2];
         }
-        //dd($groups);
+        // dd($groups);
 
         foreach ($groups as $key => $item) {
-            if ($arr = explode(',', $item)) {
+            $g = str_replace(' ', '', $item);
+            if ($arr = explode(',', $g)) {
                 unset($groups[$key]);
                 foreach ($arr as $a) {
                     $groups[] = $a;
@@ -84,17 +87,17 @@ class TeacherWorkloadController extends Controller
             }
         }
         $groups = array_unique($groups);
-        //dd($groups);
+        // dd($groups);
+
         $groups_teachers = [];
         foreach ($groups as $g) {
-            $item = str_replace(' ', '', $g);
             foreach ($data as $d) {
-                if (str_contains($d[2], $item) && !in_array($item, ['', 'Группа'])) {
-                    $groups_teachers[$item][] = [$d[0], $d[3]];
+                if (str_contains($d[2], $g) && !in_array($g, ['', 'Группа'])) {
+                    $groups_teachers[$g][] = [$d[0], $d[3]];
                 }
             }
         }
-        //dd($groups_teachers['НБз-20-1']);
+        // dd($groups_teachers);
         //dd(explode('-', 'НБз-20-1'));
         foreach ($groups_teachers as $gtk => $gtv) {
             foreach ($gtv as $g) {
@@ -122,6 +125,7 @@ class TeacherWorkloadController extends Controller
                     //dd(count($g_i));
                     if (count($g_i) == 3) {
                         $group = Group::where('short_name', '=', $gtk)->get()->first();
+                        create_teacher($g[1]);
                         $teacher = User::where('fio', '=', $g[1])->get()->first();
                         if (Subject::where([['name', '=', $g[0]], ['group_id', '=', $group->id]])->get()->count() == 0) {
                             $subject = new Subject;
@@ -383,7 +387,7 @@ class TeacherWorkloadController extends Controller
                 $teachers[] = [$d[3], $d[13]];
         }
         $teachers = array_unique($teachers, SORT_REGULAR);
-        //dd($teachers);
+        // dd($teachers);
 
         foreach ($teachers as $t) {
             if (User::where('fio', '=', $t[0])->get()->count() == 0) {
@@ -416,6 +420,16 @@ class TeacherWorkloadController extends Controller
                 }
             }
         }
+    }
+}
+
+function create_teacher($fio)
+{
+    if (User::where('fio', '=', $fio)->get()->count() == 0) {
+        $user = new User;
+        $user->role_id = 3;
+        $user->fio = $fio;
+        $user->save();
     }
 }
 

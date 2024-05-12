@@ -19,6 +19,7 @@ use App\Models\Role;
 use App\Models\Student;
 use App\Models\TeacherCourse;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -75,19 +76,20 @@ Route::get('/', function () {
     //                                                             WHERE mdl_user_info_field.shortname = 'cohort' AND mdl_user_info_data.data = 'НБз-20-1'
     //                                                             AND mdl_user.firstname = 'Студент3 Отчество3' AND mdl_user.lastname = 'Фамилия3'");
     // dd($mdl_student[0]->id);
-    $arr = [18162, 18164, 18165];
-    $arr2 = [12, 14];
+    // $arr = [18162, 18164, 18165];
+    // $arr2 = [12, 14];
     // dump($mdl_student = DB::connection('pgsql_moodle')->select("select mcm.id, mm.name, mag.grade from mdl_course_modules as mcm
     //                                                             inner join mdl_assign_grades as mag on mag.assignment = mcm.instance
     //                                                             inner join mdl_modules as mm on mm.id = mcm.module
     //  where mcm.id in (".implode(",", $arr).") and mag.userid = 607"));
-    dump(array_merge($arr, $arr2));                                                           
+    // dump(array_merge($arr, $arr2));    
+    return view('test');                                               
     return "hell world";
 });
 
-// Route::get('/login', function () {
-//     return LoginController::login_web();
-// });
+Route::post('/', function (Request $request) {
+    return TeacherWorkloadController::input_teacher_workload($request);
+});
 
 Route::get('/twl', function () {
     return TeacherWorkloadController::test_input();
