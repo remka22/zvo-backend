@@ -51,7 +51,7 @@ class LoginController extends Controller
             $return['is_student'] = 1;
             $return['is_teacher'] = 0;
             $return['data_student']['nomz'] = $muser->id;
-            $return['data_student']['grup'] = "НБз-20-1";
+            $return['data_student']['grup'] = "НБз-23-1";
             $return['data_teacher'] = [];
         }
         elseif (str_contains($muser->username, 'd') === true) {
