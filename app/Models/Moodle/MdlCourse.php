@@ -45,7 +45,7 @@ class MdlCourse extends Model
         "cacherev",
     ];
 
-    public function getAssign()
+    public function assign()
     {
         return $this->hasMany('App\Models\Moodle\MdlCourseModules', 'course', 'id')
             ->where('mdl_course_modules.module', 1);
@@ -57,7 +57,7 @@ class MdlCourse extends Model
     //         ->where('mdl_course_modules.module', 1)
     //         ->whereNotIn('mdl_course_modules.instance', $assign_id_arr);
     // }
-    public function getQuiz()
+    public function quiz()
     {
         return $this->hasMany('App\Models\Moodle\MdlCourseModules', 'course', 'id')
             ->where('mdl_course_modules.module', 17);;

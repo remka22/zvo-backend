@@ -10,7 +10,7 @@ class TeacherCourse extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = "teacher_course";
-    function getCourse(){
+    function course(){
         return $this->hasOne('App\Models\MoodleCourse', 'id', 'course_id');
     }
 }

@@ -50,6 +50,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Role::class, 'id', 'role_id');
     }
+    
+    public function hasRole($check)
+    {
+        return $check == $this->role->name;
+    
+    }
 
     public function groups(){
         return $this->hasMany('App\Models\Group', 'metodist_id', 'id');
@@ -62,6 +68,10 @@ class User extends Authenticatable
     }
     public function getStudent(){
         return $this->hasOne('App\Models\Sudent', 'user_id', 'id');
+    }
+
+    public function new_messages(){
+        return $this->hasMany('App\Models\Notification', 'user_send_id', 'id')->where('is_read', false);
     }
 
     // for metodist post

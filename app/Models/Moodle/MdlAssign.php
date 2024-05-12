@@ -42,4 +42,5 @@ class MdlAssign extends Model
         "sendstudentnotifications",
         "preventsubmissionnotingroup",
     ];
+
 }

@@ -10,6 +10,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\DB;
 use App\Models\Group;
 use App\Models\Moodle\MdlUser;
+use App\Models\Student;
 use App\Models\Subject;
 use App\Models\SubjectTeacher;
 use App\Models\User;
@@ -59,9 +60,8 @@ class TeacherWorkloadController extends Controller
 
         // TeacherWorkloadController::teachers_inmoodle($data);
         // TeacherWorkloadController::teachers_incampus($data);
-        // TeacherWorkloadController::teachers_insystem($data);
+        TeacherWorkloadController::teachers_insystem_v2($data);
         TeacherWorkloadController::input($data);
-
         response('Нагрузка загружена');
     }
 
@@ -86,7 +86,8 @@ class TeacherWorkloadController extends Controller
         $groups = array_unique($groups);
         //dd($groups);
         $groups_teachers = [];
-        foreach ($groups as $item) {
+        foreach ($groups as $g) {
+            $item = str_replace(' ', '', $g);
             foreach ($data as $d) {
                 if (str_contains($d[2], $item) && !in_array($item, ['', 'Группа'])) {
                     $groups_teachers[$item][] = [$d[0], $d[3]];
@@ -126,7 +127,11 @@ class TeacherWorkloadController extends Controller
                             $subject = new Subject;
                             $subject->name = $g[0];
                             $subject->group_id = $group->id;
-                            $subject->number_course = date('Y') - 2000 - $group->year + 1;
+                            $n_course = date('Y') - 2000 - $group->year;
+                            if (date("m") > 9) {
+                                $n_course++;
+                            }
+                            $subject->number_course = $n_course;
                             $subject->save();
                             if ($teacher != null) {
                                 $subject_teacher = new SubjectTeacher;
@@ -151,7 +156,11 @@ class TeacherWorkloadController extends Controller
                                 $subject = new Subject;
                                 $subject->name = $g[0];
                                 $subject->group_id = $gs->id;
-                                $subject->number_course = date('Y') - 2000 - $gs->year + 1;
+                                $n_course = date('Y') - 2000 - $gs->year;
+                                if (date("m") > 9) {
+                                    $n_course++;
+                                }
+                                $subject->number_course = $n_course;
                                 $subject->save();
                                 if ($teacher != null) {
                                     $subject_teacher = new SubjectTeacher;
@@ -175,10 +184,199 @@ class TeacherWorkloadController extends Controller
         }
     }
 
-    public static function teachers_inmoodle($data)
+    // public static function teachers_inmoodle($data)
+    // {
+
+
+    //     $teachers = [];
+    //     foreach ($data as $d) {
+    //         if ($d[3] != 'Ф.И.О. Преподавателя' && $d[3] != null)
+    //             $teachers[] = [$d[3], $d[13]];
+    //     }
+    //     $teachers = array_unique($teachers, SORT_REGULAR);
+    //     //dd($teachers);
+
+    //     foreach ($teachers as $t) {
+    //         $fio = explode(" ", $t[0]);
+    //         $first_name = $fio[0];
+    //         $last_name = $fio[1];
+    //         $faculty = $t[1];
+    //         $cohort = "Преподаватель";
+    //         $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
+    //         if ($moodle_teacher == []) {
+    //             //dd(0);
+    //             $i_login = DB::connection('pgsql_moodle')->select('select count(id) from public.mdl_user;')[0]->count;
+    //             $i_login++;
+    //             $login = 'p' . $i_login;
+    //             $password = bcrypt('tasar232');
+    //             $email = 'p' . $i_login . '@mail.ru';
+    //             $teacher = DB::connection('pgsql_moodle')->select("INSERT INTO public.mdl_user
+    //             (confirmed, mnethostid, username, password, email, firstname, lastname, city, country, lang)
+    //             VALUES(1, 1, '$login', '$password', '$email', '$first_name', '$last_name', 'Иркутск', 'RU', 'ru');");
+
+    //             $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
+    //             $mira_id = $moodle_teacher[0]->id + 1122345;
+
+
+    //             $teacher_in_campus = DB::connection('pgsql_campus_auth')->select("INSERT INTO public.campus
+    //             (miraid, last_name, first_name, nomz, cohort , subfaculty, faculty, login)
+    //             VALUES($mira_id, '$last_name', '$first_name', null, '$cohort', null, '$faculty', '$login');");
+    //             //  dd('ddad');
+    //         } else {
+    //             $count_teacher_campus_auth = DB::connection('pgsql_campus_auth')->select("SELECT miraid FROM public.campus WHERE last_name = '$last_name' and first_name = '$first_name' and faculty = '$faculty'");
+    //             if ($count_teacher_campus_auth == []) {
+    //                 $mira_id = $moodle_teacher[0]->id + 1122345;
+    //                 $login = $moodle_teacher[0]->email;
+    //                 $teacher_in_campus = DB::connection('pgsql_campus_auth')->select("INSERT INTO public.campus
+    //             (miraid, last_name, first_name, nomz, cohort , subfaculty, faculty, login)
+    //             VALUES($mira_id, '$last_name', '$first_name', null, '$cohort', null, '$faculty', '$login');");
+    //             }
+    //         }
+    //         //dd(1);
+    //     }
+    // }
+
+    // public static function teachers_incampus($data)
+    // {
+
+    //     $teachers = [];
+    //     foreach ($data as $d) {
+    //         if ($d[3] != 'Ф.И.О. Преподавателя' && $d[3] != null)
+    //             $teachers[] = [$d[3], $d[13]];
+    //     }
+    //     $teachers = array_unique($teachers, SORT_REGULAR);
+    //     //dd($teachers);
+
+    //     foreach ($teachers as $t) {
+    //         $fio = explode(" ", $t[0]);
+    //         $first_name = $fio[0];
+    //         $last_name = $fio[1];
+    //         $subaculty = $t[1];
+    //         $cohort = "Преподаватель";
+    //         $teacher_campus = Campus::where([['first_name', '=', $first_name], ['last_name', '=', $last_name]])->get();
+    //         if ($teacher_campus->count() > 1) {
+    //             //check the subfuculty
+    //         } else if ($teacher_campus->count() == 0) {
+    //             $moodle_teacher = MdlUser::where([['lastname', '=', $last_name], ['firstname', '=', $first_name]])->get();
+    //             if ($moodle_teacher->count() > 1) {
+    //                 //check the subfuculty in a moodle
+    //             } else if ($moodle_teacher->count() == 1) {
+    //                 $m_teacher = $moodle_teacher->first();
+    //                 $campus = new Campus();
+    //                 $campus->miraid = null;
+    //                 $campus->last_name = $m_teacher->lastname;
+    //                 $campus->first_name = $m_teacher->firstname;
+    //                 $campus->nomz = $m_teacher->username;
+    //                 $campus->cohort  = 'Преподаватель';
+    //                 $campus->subfaculty = $subaculty;
+    //                 $campus->faculty = null;
+    //                 $campus->login = $m_teacher->username;
+    //                 $campus->save();
+    //             } else {
+    //                 // $campus = new Campus();
+    //                 // $campus->miraid = null;
+    //                 // $campus->last_name = $last_name;
+    //                 // $campus->first_name = $first_name;
+    //                 // $campus->nomz = 'UNDEFIND';
+    //                 // $campus->cohort  = 'Преподаватель';
+    //                 // $campus->subfaculty = $subaculty;
+    //                 // $campus->faculty = null;
+    //                 // $campus->login = $m_teacher->username;
+    //                 // $campus->save();
+    //             }
+    //         } else if ($teacher_campus->count() == 1) {
+    //         }
+    //         //dd(1);
+    //     }
+    // }
+
+    // public static function teachers_insystem($data)
+    // {
+    //     $teachers = [];
+    //     foreach ($data as $d) {
+    //         if ($d[3] != 'Ф.И.О. Преподавателя' && $d[3] != null)
+    //             $teachers[] = [$d[3], $d[13]];
+    //     }
+    //     $teachers = array_unique($teachers, SORT_REGULAR);
+    //     //dd($teachers);
+
+    //     foreach ($teachers as $t) {
+    //         $fio = explode(" ", $t[0]);
+    //         $first_name = $fio[0];
+    //         $last_name = $fio[1];
+    //         $subfaculty = $t[1];
+
+    //         $user = User::where('fio', '=', $t[0])->get();
+    //         if ($user->count() == 0) {
+    //             $teacher_campus = Campus::where([['first_name', '=', $first_name], ['last_name', '=', $last_name]])->get();
+    //             $user = new User;
+    //             $save = true;
+    //             $user->role_id = 3;
+    //             if ($teacher_campus->count() == 0) {
+    //                 $moodle_teacher = MdlUser::where(['firstname', '=', $first_name], ['lastname', '=', $last_name])->get();
+    //                 //dd($moodle_teacher);
+    //                 if ($moodle_teacher->count() == 1) {
+    //                     $moodle_teacher = $moodle_teacher->first();
+    //                     $user->fio = $t[0];
+    //                     $user->email = $moodle_teacher->username;
+    //                     $user->moodle_id = $moodle_teacher->id;
+    //                     $user->password = $moodle_teacher->password; //needs a generation
+    //                 } else if ($moodle_teacher->count() == 0) {
+    //                     $user->fio = $t[0] + 'not_found in_moodle_and_in_campus';
+    //                     $user->email = 'NotFound inMoodle';
+    //                     $user->moodle_id = null;
+    //                     $user->password = null;
+    //                 }
+    //                 $user->mira_id = null;
+    //             } else if ($teacher_campus->count() == 1) {
+    //                 $teacher_campus = $teacher_campus->first();
+    //                 // $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email, password from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
+    //                 $moodle_teacher = MdlUser::where('username', $teacher_campus->login)->get()->first();
+    //                 //dd($moodle_teacher);
+    //                 if ($moodle_teacher != null) {
+    //                     $user->fio = $t[0];
+    //                     $user->moodle_id = $moodle_teacher->id;
+    //                     $user->password = $moodle_teacher->password; //needs a generation
+    //                 } else {
+    //                     $user->fio = $t[0] + 'NotFound inMoodle';
+    //                     $user->moodle_id = null;
+    //                     $user->password = null; //needs a generation
+    //                 }
+    //                 $user->email = $teacher_campus->login;
+    //                 $user->mira_id = $teacher_campus->miraid;
+    //             } else {
+    //                 $teacher_campus = Campus::where([['first_name', '=', $first_name], ['last_name', '=', $last_name], ['subfaculty', '=', $subfaculty]])->get();
+    //                 if ($teacher_campus->count() == 0) {
+    //                     //go to moodle and check subfaculty
+    //                 } else if ($teacher_campus->count() == 1) {
+    //                     $teacher_campus = $teacher_campus->first();
+    //                     // $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email, password from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
+    //                     $moodle_teacher = MdlUser::where('username', $teacher_campus->login)->get()->first();
+    //                     //dd($moodle_teacher);
+    //                     if ($moodle_teacher != null) {
+    //                         $user->fio = $t[0];
+    //                         $user->moodle_id = $moodle_teacher->id;
+    //                         $user->password = $moodle_teacher->password; //needs a generation
+    //                     } else {
+    //                         $user->fio = $t[0] + 'NotFound inMoodle';
+    //                         $user->moodle_id = null;
+    //                         $user->password = null; //needs a generation
+    //                     }
+    //                     $user->email = $teacher_campus->login;
+    //                     $user->mira_id = $teacher_campus->miraid;
+    //                 } else {
+    //                     //no have idea
+    //                 }
+    //             }
+
+    //             if ($save) {
+    //                 $user->save();
+    //             }
+    //         }
+    //     }
+    // }
+    public static function teachers_insystem_v2($data)
     {
-
-
         $teachers = [];
         foreach ($data as $d) {
             if ($d[3] != 'Ф.И.О. Преподавателя' && $d[3] != null)
@@ -188,179 +386,32 @@ class TeacherWorkloadController extends Controller
         //dd($teachers);
 
         foreach ($teachers as $t) {
-            $fio = explode(" ", $t[0]);
-            $first_name = $fio[0];
-            $last_name = $fio[1];
-            $faculty = $t[1];
-            $cohort = "Преподаватель";
-            $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
-            if ($moodle_teacher == []) {
-                //dd(0);
-                $i_login = DB::connection('pgsql_moodle')->select('select count(id) from public.mdl_user;')[0]->count;
-                $i_login++;
-                $login = 'p' . $i_login;
-                $password = bcrypt('tasar232');
-                $email = 'p' . $i_login . '@mail.ru';
-                $teacher = DB::connection('pgsql_moodle')->select("INSERT INTO public.mdl_user
-                (confirmed, mnethostid, username, password, email, firstname, lastname, city, country, lang)
-                VALUES(1, 1, '$login', '$password', '$email', '$first_name', '$last_name', 'Иркутск', 'RU', 'ru');");
-
-                $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
-                $mira_id = $moodle_teacher[0]->id + 1122345;
-
-
-                $teacher_in_campus = DB::connection('pgsql_campus_auth')->select("INSERT INTO public.campus
-                (miraid, last_name, first_name, nomz, cohort , subfaculty, faculty, login)
-                VALUES($mira_id, '$last_name', '$first_name', null, '$cohort', null, '$faculty', '$login');");
-                //  dd('ddad');
-            } else {
-                $count_teacher_campus_auth = DB::connection('pgsql_campus_auth')->select("SELECT miraid FROM public.campus WHERE last_name = '$last_name' and first_name = '$first_name' and faculty = '$faculty'");
-                if ($count_teacher_campus_auth == []) {
-                    $mira_id = $moodle_teacher[0]->id + 1122345;
-                    $login = $moodle_teacher[0]->email;
-                    $teacher_in_campus = DB::connection('pgsql_campus_auth')->select("INSERT INTO public.campus
-                (miraid, last_name, first_name, nomz, cohort , subfaculty, faculty, login)
-                VALUES($mira_id, '$last_name', '$first_name', null, '$cohort', null, '$faculty', '$login');");
-                }
-            }
-            //dd(1);
-        }
-    }
-
-    public static function teachers_incampus($data)
-    {
-
-        $teachers = [];
-        foreach ($data as $d) {
-            if ($d[3] != 'Ф.И.О. Преподавателя' && $d[3] != null)
-                $teachers[] = [$d[3], $d[13]];
-        }
-        $teachers = array_unique($teachers, SORT_REGULAR);
-        //dd($teachers);
-
-        foreach ($teachers as $t) {
-            $fio = explode(" ", $t[0]);
-            $first_name = $fio[0];
-            $last_name = $fio[1];
-            $subaculty = $t[1];
-            $cohort = "Преподаватель";
-            $teacher_campus = Campus::where([['first_name', '=', $first_name], ['last_name', '=', $last_name]])->get();
-            if ($teacher_campus->count() > 1) {
-                //check the subfuculty
-            } else if ($teacher_campus->count() == 0) {
-                $moodle_teacher = MdlUser::where([['lastname', '=', $last_name], ['firstname', '=', $first_name]])->get();
-                if ($moodle_teacher->count() > 1) {
-                    //check the subfuculty in a moodle
-                } else if ($moodle_teacher->count() == 1) {
-                    $m_teacher = $moodle_teacher->first();
-                    $campus = new Campus();
-                    $campus->miraid = null;
-                    $campus->last_name = $m_teacher->lastname;
-                    $campus->first_name = $m_teacher->firstname;
-                    $campus->nomz = $m_teacher->username;
-                    $campus->cohort  = 'Преподаватель';
-                    $campus->subfaculty = $subaculty;
-                    $campus->faculty = null;
-                    $campus->login = $m_teacher->username;
-                    $campus->save();
-                } else {
-                    // $campus = new Campus();
-                    // $campus->miraid = null;
-                    // $campus->last_name = $last_name;
-                    // $campus->first_name = $first_name;
-                    // $campus->nomz = 'UNDEFIND';
-                    // $campus->cohort  = 'Преподаватель';
-                    // $campus->subfaculty = $subaculty;
-                    // $campus->faculty = null;
-                    // $campus->login = $m_teacher->username;
-                    // $campus->save();
-                }
-            } else if ($teacher_campus->count() == 1) {
-            }
-            //dd(1);
-        }
-    }
-
-    public static function teachers_insystem($data)
-    {
-        $teachers = [];
-        foreach ($data as $d) {
-            if ($d[3] != 'Ф.И.О. Преподавателя' && $d[3] != null)
-                $teachers[] = [$d[3], $d[13]];
-        }
-        $teachers = array_unique($teachers, SORT_REGULAR);
-        //dd($teachers);
-
-        foreach ($teachers as $t) {
-            $fio = explode(" ", $t[0]);
-            $first_name = $fio[0];
-            $last_name = $fio[1];
-            $subfaculty = $t[1];
-
-            $user = User::where('fio', '=', $t[0])->get();
-            if ($user->count() == 0) {
-                $teacher_campus = Campus::where([['first_name', '=', $first_name], ['last_name', '=', $last_name]])->get();
+            if (User::where('fio', '=', $t[0])->get()->count() == 0) {
                 $user = new User;
-                $save = true;
                 $user->role_id = 3;
-                if ($teacher_campus->count() == 0) {
-                    $moodle_teacher = MdlUser::where(['firstname', '=', $first_name], ['lastname', '=', $last_name])->get();
-                    //dd($moodle_teacher);
-                    if ($moodle_teacher->count() == 1) {
-                        $moodle_teacher = $moodle_teacher->first();
-                        $user->fio = $t[0];
-                        $user->email = $moodle_teacher->username;
-                        $user->moodle_id = $moodle_teacher->id;
-                        $user->password = $moodle_teacher->password; //needs a generation
-                    } else if ($moodle_teacher->count() == 0) {
-                        $user->fio = $t[0] + 'not_found in_moodle_and_in_campus';
-                        $user->email = 'NotFound inMoodle';
-                        $user->moodle_id = null;
-                        $user->password = null;
-                    }
-                    $user->mira_id = null;
-                } else if ($teacher_campus->count() == 1) {
-                    $teacher_campus = $teacher_campus->first();
-                    // $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email, password from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
-                    $moodle_teacher = MdlUser::where('username', $teacher_campus->login)->get()->first();
-                    //dd($moodle_teacher);
-                    if ($moodle_teacher != null) {
-                        $user->fio = $t[0];
-                        $user->moodle_id = $moodle_teacher->id;
-                        $user->password = $moodle_teacher->password; //needs a generation
-                    } else {
-                        $user->fio = $t[0] + 'NotFound inMoodle';
-                        $user->moodle_id = null;
-                        $user->password = null; //needs a generation
-                    }
-                    $user->email = $teacher_campus->login;
-                    $user->mira_id = $teacher_campus->miraid;
-                } else {
-                    $teacher_campus = Campus::where([['first_name', '=', $first_name], ['last_name', '=', $last_name], ['subfaculty', '=', $subfaculty]])->get();
-                    if ($teacher_campus->count() == 0) {
-                        //go to moodle and check subfaculty
-                    } else if ($teacher_campus->count() == 1) {
-                        $teacher_campus = $teacher_campus->first();
-                        // $moodle_teacher = DB::connection('pgsql_moodle')->select("select id, email, password from public.mdl_user where lastname = '$last_name' and firstname = '$first_name';");
-                        $moodle_teacher = MdlUser::where('username', $teacher_campus->login)->get()->first();
-                        //dd($moodle_teacher);
-                        if ($moodle_teacher != null) {
-                            $user->fio = $t[0];
-                            $user->moodle_id = $moodle_teacher->id;
-                            $user->password = $moodle_teacher->password; //needs a generation
-                        } else {
-                            $user->fio = $t[0] + 'NotFound inMoodle';
-                            $user->moodle_id = null;
-                            $user->password = null; //needs a generation
-                        }
-                        $user->email = $teacher_campus->login;
-                        $user->mira_id = $teacher_campus->miraid;
-                    } else {
-                        //no have idea
-                    }
-                }
+                $user->fio = $t[0];
+                $user->save();
+            }
+        }
+    }
 
-                if ($save) {
+    public static function load_student($data)
+    {
+        $groups = Group::all();
+        foreach ($groups as $group) {
+            $mdl_student = DB::connection('pgsql_moodle')->select("SELECT mdl_user.id, mdl_user.firstname, mdl_user.lastname,  mdl_user_info_data.data
+                                                                FROM mdl_user_info_data
+                                                                INNER join mdl_user ON mdl_user.id = mdl_user_info_data.userid
+                                                                INNER JOIN mdl_user_info_field ON mdl_user_info_data.fieldid = mdl_user_info_field.id
+                                                                WHERE mdl_user_info_field.shortname = 'cohort' AND mdl_user_info_data.data = '" . $group->short_name . "'");
+            foreach ($mdl_student as $student) {
+                $user = User::where([['fio', $student->lastname . " " . $student->firstname], ['group_id', $group->id]])->first();
+                if (!$user) {
+                    $user = new User();
+                    $user->fio = $student->lastname . " " . $student->firstname;
+                    $user->moodle_id = $student->id;
+                    $user->group_id = $group->id;
+                    $user->role_id = 2;
                     $user->save();
                 }
             }

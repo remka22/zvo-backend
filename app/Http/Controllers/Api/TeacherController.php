@@ -38,7 +38,7 @@ class TeacherController extends Controller
                 $year--;
             }
             if (date("Y") == ($year + 2000)) {
-
+                
                 $arr_need_task = [];
                 $t_course = null;
                 if ($st->teacher_course_id != null) {
@@ -216,11 +216,13 @@ class TeacherController extends Controller
 
         $t_course = TeacherCourse::where('user_id', '=', $teacher->id)->get();
         $course_id_arr = [];
+        $course_name_arr = [];
         $assign_id_arr = [];
         $quiz_id_arr = [];
         foreach ($t_course as $tc) {
             $m_course = MoodleCourse::where('id', $tc->course_id)->get()->first();
             $course_id_arr[] = $m_course->link_id;
+            $course_name_arr[] = $m_course->name;
             $m_task = MoodleTask::where('course_id', $m_course->id)->get();
             foreach ($m_task as $mt) {
                 if ($mt->type == 'assign')
@@ -232,16 +234,23 @@ class TeacherController extends Controller
         }
         TeacherController::update_task($course_id_arr, $assign_id_arr, $quiz_id_arr);
 
-
+        $mdl_courses = MdlCourse::whereIn('id', $course_id_arr)->get();
+        foreach ($mdl_courses as $mdl_course) {
+            if (!in_array($mdl_course->fullname, $course_name_arr)) {
+                $mcourse = MoodleCourse::where('link_id', $mdl_course->id)->get()->first();
+                $mcourse->name = $mdl_course->fullname;
+                $mcourse->save();
+            }
+        }
 
         // dd($course_id_arr);
         $moodle_courses = MdlUserEnrolments::join('mdl_enrol', 'enrolid', '=', 'mdl_enrol.id')
             ->where('userid', 10)->whereNotIn('courseid', $course_id_arr)
             ->with(
-                'getEnrole.getCourse.getAssign.getAssign',
-                'getEnrole.getCourse.getAssign.getType',
-                'getEnrole.getCourse.getQuiz.getQuiz',
-                'getEnrole.getCourse.getQuiz.getType',
+                'getEnrole.getCourse.assign.assign',
+                'getEnrole.getCourse.assign.type',
+                'getEnrole.getCourse.quiz.quiz',
+                'getEnrole.getCourse.quiz.type',
             )
             ->get();
 
@@ -257,23 +266,24 @@ class TeacherController extends Controller
                 $m_course->name = $course->fullname;
                 $m_course->save();
                 // dd($course);    
-                foreach ($course->getAssign as $ca) {
+                foreach ($course->assign as $ca) {
                     $m_task = new MoodleTask;
                     $m_task->link_id = $ca->id;
-                    $m_task->name = $ca->getAssign->name;
-                    $m_task->type = $ca->getType->name;
+                    $m_task->name = $ca->assign->name;
+                    $m_task->type = $ca->type->name;
                     $m_task->course_id = $m_course->id;
                     $m_task->save();
                 }
-                foreach ($course->getQuiz as $cq) {
+                foreach ($course->quiz as $cq) {
                     $m_task = new MoodleTask;
                     $m_task->link_id = $cq->id;
-                    $m_task->name = $cq->getQuiz->name;
-                    $m_task->type = $cq->getType->name;
+                    $m_task->name = $cq->quiz->name;
+                    $m_task->type = $cq->type->name;
                     $m_task->course_id = $m_course->id;
                     $m_task->save();
                 }
             }
+
             $t_course = new TeacherCourse;
             $t_course->user_id = $teacher->id;
             $t_course->course_id = $m_course->id;
@@ -333,10 +343,10 @@ class TeacherController extends Controller
         $moodle_courses = MdlUserEnrolments::join('mdl_enrol', 'enrolid', '=', 'mdl_enrol.id')
             ->where('userid', 10)->whereIn('courseid', $course_id_arr)
             ->with(
-                'getEnrole.getCourse.getAssign.getAssign',
-                'getEnrole.getCourse.getAssign.getType',
-                'getEnrole.getCourse.getQuiz.getQuiz',
-                'getEnrole.getCourse.getQuiz.getType',
+                'getEnrole.getCourse.assign.assign',
+                'getEnrole.getCourse.assign.type',
+                'getEnrole.getCourse.quiz.quiz',
+                'getEnrole.getCourse.quiz.type',
             )
             ->get();
 
@@ -347,22 +357,22 @@ class TeacherController extends Controller
             $m_course = MoodleCourse::where('link_id', $course->id)->get()->first();
             // dd($course);
             if ($m_course != null) {
-                foreach ($course->getAssign as $ca) {
+                foreach ($course->assign as $ca) {
                     if (!in_array($ca->id, $assign_id_arr)) {
                         $m_task = new MoodleTask;
                         $m_task->link_id = $ca->id;
-                        $m_task->name = $ca->getAssign->name;
-                        $m_task->type = $ca->getType->name;
+                        $m_task->name = $ca->assign->name;
+                        $m_task->type = $ca->type->name;
                         $m_task->course_id = $m_course->id;
                         $m_task->save();
                     }
                 }
-                foreach ($course->getQuiz as $cq) {
+                foreach ($course->quiz as $cq) {
                     if (!in_array($cq->id, $quiz_id_arr)) {
                         $m_task = new MoodleTask;
                         $m_task->link_id = $cq->id;
-                        $m_task->name = $cq->getQuiz->name;
-                        $m_task->type = $cq->getType->name;
+                        $m_task->name = $cq->quiz->name;
+                        $m_task->type = $cq->type->name;
                         $m_task->course_id = $m_course->id;
                         $m_task->save();
                     }

@@ -17,21 +17,21 @@ class StudentSeeder extends Seeder
     public function run(): void
     {
 
-        $groups = Group::all();
-        foreach ($groups as $group) {
-            $cohort = $group->short_name;
-            for ($i = 0; $i < 20; $i++) {
-                $campus = DB::connection('pgsql')->select("SELECT max(id), count(id) FROM public.campus");
-                $count = $campus[0]->count;
-                $mira_id = $campus[0]->max + 1;
-                $last_name = $mira_id;
-                $first_name = "Фио студента";
-                $login = $mira_id;
-                $teacher_in_campus = DB::connection('pgsql')->select("INSERT INTO public.campus
-                (miraid, last_name, first_name, nomz, cohort , subfaculty, faculty, login)
-                VALUES($mira_id, '$last_name', '$first_name', '$login', '$cohort', null, 'stud', '$login');");
-            }
-        }
+        // $groups = Group::all();
+        // foreach ($groups as $group) {
+        //     $cohort = $group->short_name;
+        //     for ($i = 0; $i < 20; $i++) {
+        //         $campus = DB::connection('pgsql')->select("SELECT max(id), count(id) FROM public.campus");
+        //         $count = $campus[0]->count;
+        //         $mira_id = $campus[0]->max + 1;
+        //         $last_name = $mira_id;
+        //         $first_name = "Фио студента";
+        //         $login = $mira_id;
+        //         $teacher_in_campus = DB::connection('pgsql')->select("INSERT INTO public.campus
+        //         (miraid, last_name, first_name, nomz, cohort , subfaculty, faculty, login)
+        //         VALUES($mira_id, '$last_name', '$first_name', '$login', '$cohort', null, 'stud', '$login');");
+        //     }
+        // }
 
         // $students = DB::connection('pgsql_campus_auth')->select("SELECT * FROM public.campus WHERE faculty = 'stud'");
         // foreach ($students as $stud) {

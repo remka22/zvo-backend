@@ -11,7 +11,7 @@ class NeedsTask extends Model
     public $timestamps = false;
     protected $table = "needs_task";
 
-    function getTask(){
+    function task(){
         return $this->hasOne('App\Models\MoodleTask', 'id', 'task_id');
     }
 }

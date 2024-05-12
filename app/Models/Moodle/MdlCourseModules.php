@@ -32,15 +32,15 @@ class MdlCourseModules extends Model
         'deletioninprogress',
     ];
 
-    public function getAssign()
+    public function assign()
     {
         return $this->hasOne('App\Models\Moodle\MdlAssign', 'id', 'instance');
     }
-    public function getQuiz()
+    public function quiz()
     {
         return $this->hasOne('App\Models\Moodle\MdlQuiz', 'id', 'instance');
     }
-    public function getType()
+    public function type()
     {
         return $this->hasOne('App\Models\Moodle\MdlModules', 'id', 'module');
     }

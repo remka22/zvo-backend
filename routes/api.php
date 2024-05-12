@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\MetodistController;
 use App\Http\Controllers\Api\DirectorController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\StudentActivityController;
 use App\Http\Controllers\TeacherWorkloadController;
 use App\Http\Requests\LoginRequest;
 use App\Models\Group;
@@ -31,67 +32,85 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/user', function (Request $request) {
-        return User::where('id', $request->user()->id)->with('role')->get()->first();
+        return LoginController::user($request);
     });
 
-
-    Route::get('/director', function (Request $request) {
-        return DirectorController::get($request);
-    });
-    Route::post('/director', function (Request $request) {
-        return DirectorController::post($request);
-    });
-    Route::get('/director/metodist', function (Request $request) {
-        return MetodistController::get_metodist_groups($request);
-    });
-    Route::post('/workload', function (Request $request) {
-        return TeacherWorkloadController::input_teacher_workload($request);
+    Route::prefix('director')->middleware('role:Директор')->group(function () {
+        Route::get('/', function (Request $request) {
+            return DirectorController::get($request);
+        });
+        Route::post('/', function (Request $request) {
+            return DirectorController::post($request);
+        });
+        Route::post('/workload', function (Request $request) {
+            return TeacherWorkloadController::input_teacher_workload($request);
+        });
     });
 
-
-    Route::get('/metodist', function (Request $request) {
-        return MetodistController::get($request);
-    });
-    Route::post('/metodist', function (Request $request) {
-        return MetodistController::post($request);
-    });
-
-
-    Route::get('/teacher', function (Request $request) {
-        return TeacherController::get($request);
-    });
-    Route::post('/teacher', function (Request $request) {
-        return TeacherController::post($request);
-    });
-    Route::get('/teacher/update_course', function (Request $request) {
-        return TeacherController::update_courses($request);
+    Route::prefix('metodist')->middleware('role:Методист,Директор')->group(function () {
+        Route::get('/', function (Request $request) {
+            return MetodistController::get_groups($request);
+        });
+        Route::post('/', function (Request $request) {
+            return MetodistController::post($request);
+        });
     });
 
-
-    Route::get('/student', function (Request $request) {
-        return StudentController::get($request);
-    });
-    
-    Route::get('/notify', function (Request $request) {
-        return NotificationController::get($request);
-    });
-    Route::post('/notify', function (Request $request) {
-        return NotificationController::create($request);
-    });
-    Route::put('/notify', function (Request $request) {
-        return NotificationController::update($request);
+    Route::prefix('teacher')->middleware('role:Преподаватель')->group(function () {
+        Route::get('/', function (Request $request) {
+            return TeacherController::get($request);
+        });
+        Route::post('/', function (Request $request) {
+            return TeacherController::post($request);
+        });
+        Route::get('/update_course', function (Request $request) {
+            return TeacherController::update_courses($request);
+        });
     });
 
-
-    Route::post('/admin/director', function (Request $request) {
-        return AdminController::add_director($request);
+    Route::prefix('student')->middleware('role:Студент')->group(function () {
+        Route::get('/', function (Request $request) {
+            return StudentController::get_subjects($request);
+        });
+        Route::get('/subject', function (Request $request) {
+            return StudentController::get_subject_data($request);
+        });
     });
-    Route::post('/admin/metodist', function (Request $request) {
-        return AdminController::add_metodist($request);
+
+    Route::prefix('notify')->middleware('role:Методист,Директор,Преподаватель,Студент')->group(function () {
+        Route::get('/users', function (Request $request) {
+            return NotificationController::get_users($request);
+        });
+        Route::get('/messages', function (Request $request) {
+            return NotificationController::get_messages($request);
+        });
+        Route::get('/last', function (Request $request) {
+            return NotificationController::get_last($request);
+        });
+        Route::post('/', function (Request $request) {
+            return NotificationController::create($request);
+        });
+        Route::put('/', function (Request $request) {
+            return NotificationController::update($request);
+        });
     });
 
+    Route::prefix('student_activity')->middleware('role:Методист,Директор')->group(function () {
+        Route::get('/', function (Request $request) {
+            return StudentActivityController::get($request);
+        });
+    });
+
+    Route::prefix('admin')->middleware('role:Администратор')->group(function () {
+        Route::post('/director', function (Request $request) {
+            return AdminController::add_director($request);
+        });
+        Route::post('/metodist', function (Request $request) {
+            return AdminController::add_metodist($request);
+        });
+    });
 });
-Route::post('/login', function (Request $request){
+Route::post('/login', function (Request $request) {
     return LoginController::login($request);
 });
 

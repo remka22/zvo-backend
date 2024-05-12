@@ -16,7 +16,11 @@ class Group extends Model
     }
 
     // for metodist post
-    public function getSubject($subject_id){
-        return $this->hasOne('App\Models\Subject', 'group_id', 'id')->where('id', $subject_id);
+    public function metodist(){
+        return $this->hasOne('App\Models\User', 'id', 'metodist_id');
+    }
+
+    public function students(){
+        return $this->hasMany('App\Models\User','group_id', 'id');
     }
 }

@@ -15,13 +15,6 @@ class DirectorController extends Controller
 {
     public static function get($request)
     {
-        $user = $request->user();
-        if ($user->role_id != 5) {
-            return response(
-                ['massage' => 'ограничены права доступа'],
-                500
-            );
-        }
         // $metodists = User::where('role_id', 4)->get();
         // $arr_metodists = [];
         // foreach ($metodists as $met) {
@@ -80,36 +73,49 @@ class DirectorController extends Controller
         // //return($data);
         // //return(json_encode($data, JSON_UNESCAPED_UNICODE));
         $role = Role::where('name', 'Методист')->get()->first();
+        $metodists = User::where('role_id', $role->id)->with('groups')->get();
+        $metodists_arr = [];
+        foreach ($metodists as $m) {
+            $prof_group = [];
+            foreach ($m->groups as $g) {
+                $prof_group[] = ['short_name' => explode('-', $g->short_name)[0]];
+            }
+            $metodists_arr[] = [
+                'fio' => $m->fio,
+                'id' => $m->id,
+                'groups' => array_values(array_unique($prof_group, SORT_REGULAR)),
+            ];
+        }
+        $groups = Group::where('metodist_id', null)->get();
+        $prof_group = [];
+        foreach ($groups as $g) {
+            $prof_group[] = ['short_name' => explode('-', $g->short_name)[0]];
+        }
+
+
         $data = [];
         if ($role != null) {
-            $data["metodists"] = User::where('role_id', $role->id)->get();
-            $data["groups"] = Group::where('metodist_id', null)->get();
+            $data["metodists"] = $metodists_arr;
+            $data["groups"] = array_values(array_unique($prof_group, SORT_REGULAR));
         }
         return $data;
     }
 
     public static function post($request)
     {
-        $user = $request->user();
-        if ($user->role_id != 5) {
-            return response(
-                ['massage' => 'ограничены права доступа'],
-                500
-            );
-        }
-        $data = $request->input('metodists');
-        foreach ($data as $value) {
-            foreach ($value['add'] as $va) {
-                $group = Group::find($va);
-                $group->metodist_id = $value['id'];
-                $group->save();
+        $data = $request->input('data');
+        $metodist = User::find($data['metodist']['id']);
+        $groups = Group::where('metodist_id', $metodist->id)->get();
+            foreach ($groups as $g) {
+                $g->metodist_id = null;
+                $g->save();
             }
-            foreach ($value['delete'] as $vd) {
-                $group = Group::find($vd);
-                if ($group->metodist_id == $value['id']) {
-                    $group->metodist_id = null;
-                    $group->save();
-                }
+        foreach ($data['metodist']['groups'] as $value) {
+            $value['short_name'];
+            $groups = Group::where('short_name', 'like', '%'.$value['short_name'].'%')->get();
+            foreach ($groups as $g) {
+                $g->metodist_id = $metodist->id;
+                $g->save();
             }
         }
         return response([
