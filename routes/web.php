@@ -90,7 +90,7 @@ Route::get('/', function () {
 Route::post('/', function (Request $request) {
     return TeacherWorkloadController::input_teacher_workload($request);
 });
-Route::post('/ыегв', function (Request $request) {
+Route::post('/stud', function (Request $request) {
     return TeacherWorkloadController::load_student($request);
 });
 
