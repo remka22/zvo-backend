@@ -320,7 +320,7 @@ function auth($return)
         $user->email = $return['email'];
         $user->password = bcrypt('tasar232');
         $user->mira_id = $return['mira_id'][0];
-        $user->islogined = true;
+        $user->isLogined = true;
         $user->save();
     }
 
