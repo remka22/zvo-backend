@@ -16,15 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->bigInteger('group_id', false, true);
             $table->integer('number_course');
-            //$table->bigInteger('teacher_id', false, true);
             $table->bigInteger('subject_teacher_id', false, true)->nullable();
-            //$table->bigInteger('teacher_course_id', false, true)->nullable();
-            //$table->string('comment')->nullable();
-
-            //$table->foreign('teacher_id')->references('id')->on('users');
+            
             $table->foreign('group_id')->references('id')->on('groups');
-            //$table->foreign('teacher_course_id')->references('id')->on('teacher_course');
-            //$table->foreign('teacher_subject_id')->references('id')->on('teacher_subject');
+            $table->foreign('subject_teacher_id')->references('id')->on('subject_teacher');
         });
     }
 

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigInteger('task_id', false, true);
 
             $table->foreign('subject_id')->references('id')->on('subject_teacher');
-            //$table->foreign('subject_id')->references('id')->on('subject');
             $table->foreign('task_id')->references('id')->on('moodle_task');
         });
     }

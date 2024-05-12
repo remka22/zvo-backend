@@ -17,10 +17,14 @@ return new class extends Migration
             $table->string('fio');
             $table->string('email')->nullable();
             $table->string('password')->nullable();
-            $table->integer('mira_id')->nullable();
-            $table->integer('moodle_id')->nullable();
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->bigInteger('mira_id')->nullable();
+            $table->bigInteger('moodle_id')->nullable();
+            $table->bigInteger('group_id', false, true)->nullable();
+            $table->boolean('isLogined')->default(false);
             $table->rememberToken();
+
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 

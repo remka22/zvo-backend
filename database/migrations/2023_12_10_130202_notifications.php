@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('user_send_id', false, true);
             $table->bigInteger('user_rec_id', false, true);
             $table->string('content');
-            $table->date('send_date');
+            $table->bigInteger('send_date');
             $table->boolean('is_read');
 
             $table->foreign('user_send_id')->references('id')->on('users');

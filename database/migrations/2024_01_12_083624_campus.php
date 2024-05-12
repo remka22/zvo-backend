@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campus', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('miraid', false, true)->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('nomz')->nullable();
-            $table->string('cohort')->nullable();
-            $table->string('subfaculty')->nullable();
-            $table->string('faculty')->nullable();
-            $table->string('login')->nullable();
-        });
+        // Schema::create('campus', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->bigInteger('miraid', false, true)->nullable();
+        //     $table->string('last_name')->nullable();
+        //     $table->string('first_name')->nullable();
+        //     $table->string('nomz')->nullable();
+        //     $table->string('cohort')->nullable();
+        //     $table->string('subfaculty')->nullable();
+        //     $table->string('faculty')->nullable();
+        //     $table->string('login')->nullable();
+        // });
     }
 
     /**
