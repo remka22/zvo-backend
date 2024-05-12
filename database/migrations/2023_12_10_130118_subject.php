@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('subject_teacher_id', false, true)->nullable();
             
             $table->foreign('group_id')->references('id')->on('groups');
-            $table->foreign('subject_teacher_id')->references('id')->on('subject_teacher');
+            // $table->foreign('subject_teacher_id')->references('id')->on('subject_teacher');
         });
     }
 
