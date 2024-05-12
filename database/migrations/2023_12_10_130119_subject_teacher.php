@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('teacher_id', false, true);
             $table->bigInteger('teacher_course_id', false, true)->nullable();
             $table->string('comment')->nullable();
+            $table->boolean('new')->default(false);
 
             $table->foreign('teacher_id')->references('id')->on('users');
             $table->foreign('teacher_course_id')->references('id')->on('teacher_course');
