@@ -11,6 +11,12 @@ class Group extends Model
     public $timestamps = false;
     protected $table = "groups";
 
+    protected $fillable = [
+        'short_name',
+        'year',
+        'number'
+    ];
+
     public function subjects(){
         return $this->hasMany('App\Models\Subject', 'group_id', 'id');
     }

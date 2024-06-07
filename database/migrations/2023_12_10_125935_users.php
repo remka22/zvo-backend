@@ -24,7 +24,6 @@ return new class extends Migration
             $table->rememberToken();
 
             $table->foreign('role_id')->references('id')->on('roles');
-            // $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 

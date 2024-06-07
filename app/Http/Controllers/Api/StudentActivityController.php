@@ -65,7 +65,7 @@ class StudentActivityController extends Controller
                     $arr_students[] = [
                         "moodle_id" => $student->moodle_id,
                         "fio" => $student->fio,
-                        'isLogined' => $student->islogined,
+                        'isLogined' => $student->isLogined,
                         "grade" => $grads ?? [] //array_merge($grade_assign, $grade_quiz),
                     ];
                 }
@@ -105,10 +105,11 @@ class StudentActivityController extends Controller
                 // $students = User::where("group_id", $group_id)->get();
             }
         } else {
-            if ($user->hasRole("Директор")) {
-                $groups = Group::with('subjects')->get();
-            } else {
+            if ($user->hasRole("Методист")) {
                 $groups = Group::where("metodist_id", $user->id)->with('subjects')->get();
+            } 
+            else if (!$user->hasRole("Студент")) {
+                $groups = Group::with('subjects')->get();
             }
             
 

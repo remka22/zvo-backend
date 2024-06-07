@@ -23,6 +23,7 @@ class User extends Authenticatable
         'fio',
         'email',
         'password',
+        'group_id',
         'role_id',
         'mira_id'
     ];
@@ -49,6 +50,10 @@ class User extends Authenticatable
     public function role()
     {
         return $this->hasOne(Role::class, 'id', 'role_id');
+    }
+    public function group()
+    {
+        return $this->hasOne(Group::class, 'id', 'group_id');
     }
     
     public function hasRole($check)

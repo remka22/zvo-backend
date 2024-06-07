@@ -17,16 +17,17 @@ class DatabaseSeeder extends Seeder
     {
         $role = ['Администратор', 'Студент', 'Преподаватель', 'Методист', 'Директор'];
         foreach ($role as $r) {
+            if(!Role::where('name', $r)->first())
             Role::create([
                 'name' => $r,
             ]);
         }
-
+        if(!User::where('email', 'admin')->first())
         User::create([
             'role_id' => 1,
             'fio' => 'Админ',
             'email' => 'admin',
-            'password' => bcrypt('tasar232'),
+            'password' => bcrypt('admin'),
             'mira_id' => 1
         ]);
     }

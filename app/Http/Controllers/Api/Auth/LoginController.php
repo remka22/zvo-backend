@@ -38,6 +38,28 @@ class LoginController extends Controller
         }
     }
 
+    public static function login_admin(Request $request)
+    {
+        if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return response([
+                'message' => 'Неверный логин или пароль'
+            ], 422);
+        }
+
+        // $user = User::where([['email', $request->input('email')]])->with('role')->first();
+        // $user = get_data_user(Auth::user());
+
+        $accessToken = Auth::user()->createToken('access_token', [TokenAbility::ACCESS_API->value]);
+        // $accessToken = $user->createToken('access_token', [TokenAbility::ACCESS_API->value]);
+
+        return response([
+            'user' => get_data_user(Auth::user()),
+            'token' => $accessToken->plainTextToken,
+            // 'token_access_info' => $accessToken->accessToken,
+            // 'refresh_token' => $refreshToken,
+        ], 200);
+    }
+
     public static function login(Request $request)
     {
         $muser = MdlUser::where('username', $request->email)->first();
@@ -53,20 +75,17 @@ class LoginController extends Controller
             $return['data_student']['nomz'] = $muser->id;
             $return['data_student']['grup'] = "НБз-23-1";
             $return['data_teacher'] = [];
-        }
-        elseif (str_contains($muser->username, 'd') === true) {
+        } elseif (str_contains($muser->username, 'd') === true) {
             $return['is_student'] = 0;
             $return['is_teacher'] = 1;
             $return['data_student'] = [];
             $return['data_teacher']['dep'] = 'Дирекция института заочно-вечернего обучения';
-        }
-        elseif (str_contains($muser->username, 'm') === true) {
+        } elseif (str_contains($muser->username, 'm') === true) {
             $return['is_student'] = 0;
             $return['is_teacher'] = 1;
             $return['data_student'] = [];
             $return['data_teacher']['dep'] = 'Дирекция института заочно-вечернего обучения';
-        }
-        elseif (str_contains($muser->username, 'p') === true) {
+        } elseif (str_contains($muser->username, 'p') === true) {
             $return['is_student'] = 0;
             $return['is_teacher'] = 1;
             $return['data_student'] = [];
@@ -76,7 +95,8 @@ class LoginController extends Controller
         return auth($return);
     }
 
-    public static function user($request) {
+    public static function user($request)
+    {
         return get_data_user($request->user());
     }
 
@@ -261,6 +281,7 @@ class LoginController extends Controller
 
 function auth($return)
 {
+    // $PASSWORD_TOKEN = 'ul6fx5pnAWnmvW5CX7Z0';
     $user = User::where('mira_id', $return['mira_id'][0])->first();
     if (!$user) {
         if ($return['is_student']) {
@@ -270,25 +291,23 @@ function auth($return)
                     'message' => 'Ваша группа не найдена, возможно вы не ученик заочного обучения, обратитесь к администратору'
                 ], 422);
             }
-            $user = User::where([['fio', $return['last_name']." ".$return['name']], ['group_id', $group->id]])->first();
+            $user = User::where([['fio', $return['last_name'] . " " . $return['name']], ['group_id', $group->id]])->first();
             // $user = User::where([['fio', $return['last_name']." ".$return['name']." ".$return['second_name']], ['group_id', $group->id]])->first();
             //todo ЭТО НАДО ИЗМЕНИТь ПРИ ДЕПЛО!!!
-            if($user){
-
-            }
-            else{
+            if ($user) {
+            } else {
                 $mdl_student = DB::connection('pgsql_moodle')->select("SELECT mdl_user.id, mdl_user_info_data.data
                                                                 FROM mdl_user_info_data
                                                                 INNER join mdl_user ON mdl_user.id = mdl_user_info_data.userid
                                                                 INNER JOIN mdl_user_info_field ON mdl_user_info_data.fieldid = mdl_user_info_field.id
-                                                                WHERE mdl_user_info_field.shortname = 'cohort' AND mdl_user_info_data.data = '".$group->short_name."'
-                                                                AND mdl_user.firstname = '".$return['name']."' AND mdl_user.lastname = '".$return['last_name']."'");
-                                                                //todo ДОБАВИТЬ ПРИ ДЕПЛОЕ к firstname mdl_user.firstname = '".$return['name']." ".$return['second_name']."
+                                                                WHERE mdl_user_info_field.shortname = 'cohort' AND mdl_user_info_data.data = '" . $group->short_name . "'
+                                                                AND mdl_user.firstname = '" . $return['name'] . "' AND mdl_user.lastname = '" . $return['last_name'] . "'");
+                //todo ДОБАВИТЬ ПРИ ДЕПЛОЕ к firstname mdl_user.firstname = '".$return['name']." ".$return['second_name']."
                 $user = new User();
                 $user->role_id = 2;
                 $user->group_id = $group->id;
                 $user->moodle_id = $mdl_student[0]->id;
-                $user->fio = $return['last_name']." ".$return['name']." ".$return['second_name'];
+                $user->fio = $return['last_name'] . " " . $return['name'] . " " . $return['second_name'];
             }
         }
         if ($return['is_teacher']) {
@@ -299,7 +318,7 @@ function auth($return)
             } else {
                 // $fio = $return['last_name']." ".mb_substr($return['name'],0,1).".".mb_substr($return['second_name'],0,1).".";
                 //todo ЭТО НАДО ИЗМЕНИТь ПРИ ДЕПЛО!!!
-                $fio = $return['last_name']." ".$return['name'];
+                $fio = $return['last_name'] . " " . $return['name'];
                 $user = User::where('fio', $fio)->first();
                 if (!$user) {
                     return response([
@@ -308,7 +327,7 @@ function auth($return)
                 }
                 //todo ЭТО НАДО ИЗМЕНИТь ПРИ ДЕПЛО!!!
                 // $muser = MdlUser::where([['lastname', '=',$return['last_name']], ['firstname', '=', $return['name']." ".$return['second_name']]])->first();
-                $muser = MdlUser::where([['lastname', '=',$return['last_name']], ['firstname', '=', $return['name']]])->first();
+                $muser = MdlUser::where([['lastname', '=', $return['last_name']], ['firstname', '=', $return['name']]])->first();
                 if (!$muser) {
                     return response([
                         'message' => 'Ваша учетная запись в мудл не найдена, обратитесь к администратору'
@@ -318,25 +337,27 @@ function auth($return)
             }
         }
         $user->email = $return['email'];
-        $user->password = bcrypt('tasar232');
+        // $user->password = bcrypt($PASSWORD_TOKEN);
         $user->mira_id = $return['mira_id'][0];
         $user->isLogined = true;
         $user->save();
     }
 
-    if (!Auth::attempt(['email' => $return['email'], 'password' => 'tasar232'])) {
+    $user = User::where([['email', $return['email']], ['mira_id', $return['mira_id'][0]]])->first();
+
+    if (!$user) {
         return response([
             'message' => 'Чтото пошло не так, обратитесь к администратору'
         ], 422);
     }
 
     // $user = User::where('id', Auth::user()->id)->with('role')->first();
-    $user = get_data_user(Auth::user());
+    
 
-    $accessToken = Auth::user()->createToken('access_token', [TokenAbility::ACCESS_API->value]);
-
+    $accessToken = $user->createToken('access_token', [TokenAbility::ACCESS_API->value]);
+    
     return response([
-        'user' => $user,
+        'user' => get_data_user($user),
         'token' => $accessToken->plainTextToken,
         // 'token_access_info' => $accessToken->accessToken,
         // 'refresh_token' => $refreshToken,
@@ -344,7 +365,8 @@ function auth($return)
 }
 
 
-function get_data_user($auth_user){
+function get_data_user($auth_user)
+{
     $user = null;
     if ($auth_user->hasRole('Студент')) {
         $group = Group::find($auth_user->group_id)?->with('metodist')->first();
@@ -353,9 +375,7 @@ function get_data_user($auth_user){
             'metodist_fio' => $group->metodist->fio ?? null,
             'metodist_email' => $group->metodist->email ?? null,
         ];
-    }
-    else {
-        
+    } else {
     }
     $user = [
         'email' => $auth_user->email,

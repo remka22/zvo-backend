@@ -23,15 +23,15 @@ class StudentController extends Controller
     public static function get_subjects($request)
     {
         $user = $request->user();
-        if ($user->role_id != 2) {
-            return response(
-                ['massage' => 'ограничены права доступа'],
-                500
-            );
-        }
+        // if ($user->role_id != 2) {
+        //     return response(
+        //         ['massage' => 'ограничены права доступа'],
+        //         500
+        //     );
+        // }
         // $student = Student::where('user_id', $user->id)->get()->first();
         $group = Group::where('id', $user->group_id)->get()->first();
-        if ($group->metodist_id != null) {
+        if ($group->metodist_id) {
             $m = User::find($group->metodist_id);
             $metodist_id = $m->id;
             $metodist_fio = $m->fio;
@@ -51,7 +51,7 @@ class StudentController extends Controller
             'course' => $number_course,
             'number' => $group->number
         ];
-        $subjects = Subject::where([['group_id', '=', $group->id], ['number_course', '=', $number_course]])->get();
+        $subjects = Subject::where([['group_id', '=', $group->id], ['number_course', '=', $number_course]])->orderBy('subject_teacher_id')->get();
 
         $data = [
             'group' => $arr_group,
@@ -59,7 +59,7 @@ class StudentController extends Controller
         ];
         // json_encode($data, JSON_UNESCAPED_UNICODE)
         //dd($data);
-        return $data; //(json_encode($data, JSON_UNESCAPED_UNICODE));
+        return (json_encode($data, JSON_UNESCAPED_UNICODE));
     }
     public static function get_subject_data($request)
     {

@@ -77,7 +77,7 @@ Route::middleware('auth:sanctum')->group(function () {
         });
     });
 
-    Route::prefix('notify')->middleware('role:Методист,Директор,Преподаватель,Студент')->group(function () {
+    Route::prefix('notify')->middleware('role:Методист,Директор,Преподаватель,Студент,Администратор')->group(function () {
         Route::get('/users', function (Request $request) {
             return NotificationController::get_users($request);
         });
@@ -95,25 +95,37 @@ Route::middleware('auth:sanctum')->group(function () {
         });
     });
 
-    Route::prefix('student_activity')->middleware('role:Методист,Директор')->group(function () {
+    Route::prefix('student_activity')->middleware('role:Методист,Директор,Администратор')->group(function () {
         Route::get('/', function (Request $request) {
             return StudentActivityController::get($request);
         });
     });
 
     Route::prefix('admin')->middleware('role:Администратор')->group(function () {
-        Route::post('/director', function (Request $request) {
-            return AdminController::add_director($request);
+        Route::get('/users', function (Request $request) {
+            return AdminController::users($request);
         });
-        Route::post('/metodist', function (Request $request) {
-            return AdminController::add_metodist($request);
+        // Route::get('/user', function (Request $request) {
+        //     return AdminController::user($request);
+        // });
+        Route::get('/roles', function (Request $request) {
+            return AdminController::roles($request);
+        });
+        Route::post('/add_user', function (Request $request) {
+            return AdminController::add_user($request);
+        });
+        Route::post('/delete_user', function (Request $request) {
+            return AdminController::delete_user($request);
         });
     });
 });
 Route::post('/login', function (Request $request) {
-    return LoginController::login($request);
+    return LoginController::login_admin($request);
 });
 
+Route::post('/login_admin', function (Request $request) {
+    return LoginController::login_admin($request);
+});
 
 
 // Route::post('/signup', [LoginController::class, 'signup']);
